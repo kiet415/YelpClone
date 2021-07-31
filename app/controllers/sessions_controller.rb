@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
     def new
         render :new
     end
@@ -7,7 +7,7 @@ class SessionController < ApplicationController
         @user = User.find_by_credentials(params[:user][:email],params[:user][:password])
         if @user
             login!(@user)
-            redirect_to user_url(@user)
+            render 'api/users/show'
         else
             render json: ['Invalid email or password'], status 401
             
