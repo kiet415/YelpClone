@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.session-form {
+    display: flex;
+    flex-direction: column;
+}

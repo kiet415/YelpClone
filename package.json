@@ -8,16 +8,21 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "7.19.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiet415/YelpClone.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kiet Nguyen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kiet415/YelpClone/issues"
