@@ -1,4 +1,6 @@
 import React from 'react';
+//import { withRouter } from "react-router";
+
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -9,11 +11,14 @@ class SessionForm extends React.Component {
         email: "",
         password: "",
       };
+      
     }
+  
     handleSubmit = (e) =>  {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+        //this.props.history.push("/")
     }
     update(field) {
       return e => this.setState({
@@ -37,18 +42,20 @@ class SessionForm extends React.Component {
               <h1>{this.props.formType} </h1>
               {this.renderErrors()}
               <form className="session-form" onSubmit={this.handleSubmit}>
-              {this.props.formType === 'Login' ? 
+              {this.props.formType === 'Log In' ? 
               <div>
                 <label> Email
                 <input
+                  type="text"
                     value={this.props.email}
                     onChange={this.update('email')}
                   />
                 </label>
                 <label> Password
                 <input
-                    value={this.props.password}
-                    onChange={this.update('firstName')}
+                  type="password"
+                  value={this.props.password}
+                  onChange={this.update('firstName')}
                   />
                 </label>
               </div>
@@ -56,26 +63,30 @@ class SessionForm extends React.Component {
               <div>
                 <label> First Name
                 <input
-                    value={this.props.firstName}
-                    onChange={this.update('firstName')}
+                  type="text" 
+                  value={this.props.firstName}
+                  onChange={this.update('firstName')}
                   />
                 </label>
                 <label> Last Name
                 <input
-                    value={this.props.lastName}
-                    onChange={this.update('lastName')}
+                  type="text"
+                  value={this.props.lastName}
+                  onChange={this.update('lastName')}
                   />
                 </label>
                 <label> Email
                 <input
-                    value={this.props.email}
-                    onChange={this.update('email')}
+                  type="text"
+                  value={this.props.email}
+                  onChange={this.update('email')}
                   />
                 </label>
                 <label> Password
                 <input
-                    value={this.props.password}
-                    onChange={this.update('password')}
+                  type="password"
+                  value={this.props.password}
+                  onChange={this.update('password')}
                   />
                 </label>
                 
