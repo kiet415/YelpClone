@@ -37,6 +37,7 @@ class SessionForm extends React.Component {
       );
     }
     render() {
+
         return(
             <div>
               <h1>{this.props.formType} </h1>
@@ -55,7 +56,7 @@ class SessionForm extends React.Component {
                 <input
                   type="password"
                   value={this.props.password}
-                  onChange={this.update('firstName')}
+                  onChange={this.update('password')}
                   />
                 </label>
               </div>

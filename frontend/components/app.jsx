@@ -4,10 +4,11 @@ import { Route, Redirect, Switch, Link , HashRouter } from 'react-router-dom';
 import LogInContainer from './login_container.js'
 import SignUpContainer from './signup_container.js'
 import {AuthRoute, ProtectedRoute} from '../util/route_util.jsx'
-
+// import kelpIcon from '../../app/assets/images/yelp.png'
 const App = () => (
   <div>
-    <img src="../../app/assets/images/yelp.png" alt="icon"></img>
+    Icon here
+    {/* <img src={kelpIcon} alt="icon"></img> */}
     <GreetingContainer/>
     <Switch>
       <AuthRoute exact path="/login" component={LogInContainer}/>
