@@ -7,10 +7,11 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util.jsx'
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
-    Icon here
+
     {/* <img src={kelpIcon} alt="icon"></img> */}
-    <GreetingContainer/>
+    
     <Switch>
+      <AuthRoute exact path ="/" component={GreetingContainer}/>
       <AuthRoute exact path="/login" component={LogInContainer}/>
       <AuthRoute exact path="/signup" component={SignUpContainer}/>
     </Switch>

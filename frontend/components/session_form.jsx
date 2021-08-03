@@ -40,6 +40,7 @@ class SessionForm extends React.Component {
 
         return(
             <div>
+              <header className='session-header'>KELP</header>
               <h1>{this.props.formType} </h1>
               {this.renderErrors()}
               <form className="session-form" onSubmit={this.handleSubmit}>
