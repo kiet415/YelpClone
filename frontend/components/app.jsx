@@ -4,7 +4,7 @@ import { Route, Redirect, Switch, Link , HashRouter } from 'react-router-dom';
 import LogInContainer from './login_container.js'
 import SignUpContainer from './signup_container.js'
 import {AuthRoute, ProtectedRoute} from '../util/route_util.jsx'
-// import kelpIcon from '../../app/assets/images/yelp.png'
+// import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
     Icon here
