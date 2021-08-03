@@ -15,6 +15,11 @@
 #     t.string "amenities", null: false
 #     t.integer "num_rating"
 #     t.string "categories"
+Business.delete_all
+User.delete_all
+
+
+kiet = User.create({email: 'kiet@yahoo.com', first_name: 'Kiet', last_name: "Nguyen", password:"aaaaaa"})
 
 a = Business.create!({name: "Marugame Udon", location: "3251 20th Ave Space 184 San Francisco, CA 94132",
                     rating: 4, phone_number: "(415) 680-1280", website: "marugameudon.com",
@@ -23,3 +28,14 @@ a = Business.create!({name: "Marugame Udon", location: "3251 20th Ave Space 184 
                     amenities: 'Offers Delivery, Offers Takeout, No Reservations, Accepts Credit Cards',
                     num_rating: 1912, categories: 'Japanese, Noodles'
                     })
+
+
+b = Business.create!({name: "Dumpling Kitchen", location: "1935 Taraval St San Francisco, CA 94116",
+rating: 4, phone_number: "(415) 682-8938", website: "dumplingkitchenca.com",
+open_hours: 'Mon 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Tue 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
+Wed 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Thu 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
+Fri 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Sat 11:00 AM - 9:30 PM Sun 11:00 AM - 9:30 PM',
+amenities: 'Takes Reservations, Offers Delivery, Offers Takeout, Accepts Credit Cards',
+num_rating: 1697, categories: 'Chinese'
+})
+
