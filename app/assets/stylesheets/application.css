@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 .session-form {
     display: flex;
     flex-direction: column;
@@ -84,8 +86,14 @@
 }
 
 .session-signIn h3 {
-    margin-top: -20px;
+    margin-top: -30px;
 }
 .session-signIn a {
+    text-decoration: none;
+}
+.session-logIn h3 {
+    margin-top: -30px;
+}
+.session-logIn a {
     text-decoration: none;
 }

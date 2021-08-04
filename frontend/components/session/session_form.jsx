@@ -45,12 +45,16 @@ class SessionForm extends React.Component {
               <header className='session-header'>KELP</header>
               <div className="session-dual-div">
                 <div className="session-box">
-                  <h1 className="session-formType">{this.props.formType} for Yelp </h1>
+                  <h1 className="session-formType">{this.props.formType} to Yelp </h1>
                   {this.renderErrors()}
                   <form className="session-form" onSubmit={this.handleSubmit}>
                   {this.props.formType === 'Log In' ? 
-                  <div>
-                    
+                  <div className="session-logIn">
+                    <h3>New to Yelp? <Link to='/signup'>Sign up</Link></h3>
+                    <div>By logging in, you agree to Yelp's
+                      <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/"> Terms of Service </a> 
+                      and acknowledge Yelp's <a href="https://terms.yelp.com/privacy/en_us/20200101_en_us/">Privary Policy.</a>
+                    </div>
                     <ul>
                       <input
                           className="session-rest"
@@ -76,8 +80,7 @@ class SessionForm extends React.Component {
                     <h3>Connect with great local businesses</h3>
                     <div>By continuing, you agree to Yelp's
                       <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/"> Terms of Service </a> 
-                      and acknowledge Yelp's <a href="https://terms.yelp.com/privacy/en_us/20200101_en_us/">Privary Policy</a>
-
+                      and acknowledge Yelp's <a href="https://terms.yelp.com/privacy/en_us/20200101_en_us/">Privary Policy.</a>
                     </div>
                       <ul>
                         <input
