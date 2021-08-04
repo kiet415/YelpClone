@@ -5,17 +5,16 @@ import LogInContainer from './session/login_container.js'
 import SignUpContainer from './session/signup_container.js'
 import {AuthRoute, ProtectedRoute} from '../util/route_util.jsx'
 import BusinessContainer from './business/business_index_container.js'
+import BusinessItemContainer from './business/business_index_item_container.js'
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
-
-    
-    
     <Switch>
-      <AuthRoute exact path ="/" component={GreetingContainer}/>
-      <AuthRoute exact path="/login" component={LogInContainer}/>
-      <AuthRoute exact path="/signup" component={SignUpContainer}/>
-      <AuthRoute exact path ="/business/:id" component={BusinessContainer} />
+      <Route exact path="/" component={GreetingContainer}/>
+      <Route exact path="/login" component={LogInContainer}/>
+      <Route exact path="/signup" component={SignUpContainer}/>
+      <Route exact path="/business" component={BusinessContainer} />
+      <Route exact path="/business/:id" component={BusinessItemContainer} />
     </Switch>
     
   </div>

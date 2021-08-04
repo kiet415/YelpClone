@@ -19,7 +19,7 @@ Business.delete_all
 User.delete_all
 
 
-kiet = User.create({email: 'kiet@yahoo.com', first_name: 'Kiet', last_name: "Nguyen", password:"aaaaaa"})
+kiet = User.create!({email: 'kiet@yahoo.com', first_name: 'Kiet', last_name: "Nguyen", password:"aaaaaa"})
 
 a = Business.create!({name: "Marugame Udon", location: "3251 20th Ave Space 184 San Francisco, CA 94132",
                     rating: 4, phone_number: "(415) 680-1280", website: "marugameudon.com",

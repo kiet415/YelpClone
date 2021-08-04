@@ -6,7 +6,6 @@ import {
   
   const businessesReducer = (state = {}, action) => {
     Object.freeze(state)
-  
     switch(action.type) {
       case RECEIVE_BUSINESSES:
         return action.businesses;
