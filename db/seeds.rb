@@ -31,11 +31,11 @@ a = Business.create!({name: "Marugame Udon", location: "3251 20th Ave Space 184 
 
 
 b = Business.create!({name: "Dumpling Kitchen", location: "1935 Taraval St San Francisco, CA 94116",
-rating: 4, phone_number: "(415) 682-8938", website: "dumplingkitchenca.com",
-open_hours: 'Mon 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Tue 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
-Wed 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Thu 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
-Fri 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Sat 11:00 AM - 9:30 PM Sun 11:00 AM - 9:30 PM',
-amenities: 'Takes Reservations, Offers Delivery, Offers Takeout, Accepts Credit Cards',
-num_rating: 1697, categories: 'Chinese'
+                    rating: 4, phone_number: "(415) 682-8938", website: "dumplingkitchenca.com",
+                    open_hours: 'Mon 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Tue 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
+                    Wed 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Thu 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
+                    Fri 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Sat 11:00 AM - 9:30 PM Sun 11:00 AM - 9:30 PM',
+                    amenities: 'Takes Reservations, Offers Delivery, Offers Takeout, Accepts Credit Cards',
+                    num_rating: 1697, categories: 'Chinese'
 })
 

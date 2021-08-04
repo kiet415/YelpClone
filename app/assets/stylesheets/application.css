@@ -25,3 +25,51 @@
     text-align: center;
     font-size: 40px;
 }
+.session-input {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.session-dual-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+.session-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 5px;
+    width: 800px;
+}
+.session-box button{
+    width: 200px;
+}
+.session-pic {
+    margin-top: 50px;
+    width: 50%;
+}
+.session-rest {
+    width: 500px;
+}
+.session-name  {
+    width: 240px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+.session-rest {
+    height: 30px;   
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#lastname {
+    margin-left: 12px;
+}
+

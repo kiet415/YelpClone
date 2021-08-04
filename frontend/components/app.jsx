@@ -9,7 +9,7 @@ import BusinessContainer from './business/business_index_container.js'
 const App = () => (
   <div>
 
-    {/* <img src={kelpIcon} alt="icon"></img> */}
+    
     
     <Switch>
       <AuthRoute exact path ="/" component={GreetingContainer}/>
