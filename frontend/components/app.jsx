@@ -9,7 +9,7 @@ import BusinessShowContainer from './business/business_show_container.js'
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
-    <Route path="/" component={GreetingContainer}/>
+    <Route exact path="/" component={GreetingContainer}/>
     <Switch>
       <AuthRoute exact path="/login" component={LogInContainer}/>
       <AuthRoute exact path="/signup" component={SignUpContainer}/>
