@@ -13,7 +13,8 @@ class BusinessIndex extends React.Component {
     }
 
     render() {
-        console.log(this.props.businesses)
+        // if(this.props.{variable} === undefined) return null;
+        console.log(this.props.business)
         if (Object.values(this.props.businesses).length === 0) return null;
         return (
             <div>
@@ -23,6 +24,7 @@ class BusinessIndex extends React.Component {
                         key={business.id}>
                         <BusinessIndexItem
                             business={business}
+                            fetchBusiness={this.props.fetchBusiness}
                         />
                     </Link>
                 ))}

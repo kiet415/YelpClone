@@ -49,68 +49,70 @@ class SessionForm extends React.Component {
                   {this.renderErrors()}
                   <form className="session-form" onSubmit={this.handleSubmit}>
                   {this.props.formType === 'Log In' ? 
-                  <ul>
-                     
-                    <input
+                  <div>
+                    <ul>
+                      
+                      <input
+                          className="session-rest"
+                          type="text"
+                          value={this.props.email}
+                          placeholder="Email"
+                          onChange={this.update('email')}
+                        />
+                      
+                      
+                      <input
+                        className="session-rest"
+                        type="password"
+                        value={this.props.password}
+                        placeholder="Password"
+                        onChange={this.update('password')}
+                        />
+                      <button type="submit">{this.props.formType} </button>
+                    </ul>
+                  </div>
+                  :
+                    <ul>
+                      
+                      <input
+                        className="session-name"
+                        type="text" 
+                        value={this.props.firstName}
+                        placeholder="First Name"
+                        onChange={this.update('firstName')}
+                        />
+                      
+                      
+                      <input
+                        className="session-name"
+                        id="lastname"
+                        type="text"
+                        value={this.props.lastName}
+                        placeholder="Last Name"
+                        onChange={this.update('lastName')}
+                        />
+                      
+                      
+                      <input
                         className="session-rest"
                         type="text"
                         value={this.props.email}
                         placeholder="Email"
                         onChange={this.update('email')}
-                      />
-                    
-                     
-                    <input
-                      className="session-rest"
-                      type="password"
-                      value={this.props.password}
-                      placeholder="Password"
-                      onChange={this.update('password')}
-                      />
-                    
-                  </ul>
-                  :
-                  <ul>
-                    
-                    <input
-                      className="session-name"
-                      type="text" 
-                      value={this.props.firstName}
-                      placeholder="First Name"
-                      onChange={this.update('firstName')}
-                      />
-                    
-                    
-                    <input
-                      className="session-name"
-                      id="lastname"
-                      type="text"
-                      value={this.props.lastName}
-                      placeholder="Last Name"
-                      onChange={this.update('lastName')}
-                      />
-                    
-                    
-                    <input
-                      className="session-rest"
-                      type="text"
-                      value={this.props.email}
-                      placeholder="Email"
-                      onChange={this.update('email')}
-                      />
-                    
-                    
-                    <input
-                      className="session-rest"
-                      type="password"
-                      value={this.props.password}
-                      placeholder="Password"
-                      onChange={this.update('password')}
-                      />
-                    
-                  </ul>
+                        />
+                      
+                      
+                      <input
+                        className="session-rest"
+                        type="password"
+                        value={this.props.password}
+                        placeholder="Password"
+                        onChange={this.update('password')}
+                        />
+                      <button type="submit">{this.props.formType} </button>
+                    </ul>
                   }
-                  <button type="submit">{this.props.formType} </button>
+                  
                   </form>
                   
                 </div>

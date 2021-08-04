@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BusinessIndex from './business_index';
-import { fetchBusinesses } from '../../actions/business_actions';
+import { fetchBusinesses, fetchBusiness } from '../../actions/business_actions';
 
 const mapStateToProps = state => {
     return ({
@@ -9,7 +9,9 @@ const mapStateToProps = state => {
     })
 }
 const mapDispatchToProps = dispatch => ({
-    fetchBusinesses: (businesses) => dispatch(fetchBusinesses(businesses))
+    fetchBusinesses: (businesses) => dispatch(fetchBusinesses(businesses)),
+    fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId))
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BusinessIndex);
