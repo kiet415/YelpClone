@@ -13,10 +13,10 @@ import {
         const newBusiness = { [action.business.id]: action.business };
         return Object.assign({}, state, newBusiness);
       case RECEIVE_REVIEW:
-        const { review, average_rating } = action;
+        const { review, rating } = action;
         const newState = Object.assign({}, state);
         newState[review.business_id].reviewIds.push(review.id);
-        newState[review.business_id].average_rating = average_rating;
+        newState[review.business_id].rating = rating;
         return newState;
       default:
         return state;

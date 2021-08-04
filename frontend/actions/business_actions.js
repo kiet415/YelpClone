@@ -41,8 +41,4 @@ export const fetchBusiness = id => dispatch => (
   ))
 );
 
-export const createBusiness = business => dispatch => (
-  APIUtil.createBusiness(business).then(business => (
-    dispatch(receiveBusiness(business))
-  ))
-);
+
