@@ -15,6 +15,7 @@ class BusinessIndexItem extends React.Component {
             <div>
                 <Link to={`/business/${this.props.business.id}`} >
                     {this.props.business.name} 
+                    
                 </Link>
             </div>
         )

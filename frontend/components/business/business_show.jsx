@@ -11,10 +11,14 @@ class BusinessShow extends React.Component {
     }
     render() {
         if(this.props.business === undefined) return null;
+        console.log(this.props)
         return (
             <div>
                 {this.props.business.name} 
-                SHOW PAGE H ERE
+                <br/>
+                {this.props.business.location}
+                <br/>
+                {this.props.business.categories}
             </div>
         )
     }
