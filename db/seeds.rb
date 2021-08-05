@@ -39,12 +39,12 @@ b = Business.create!({name: "Dumpling Kitchen", location: "1935 Taraval St San F
                     num_rating: 1697, categories: 'Chinese'
 })
 
-create_table "reviews", force: :cascade do |t|
-    t.string "body", null: false
-    t.float "rating", null: false
-    t.integer "user_id", null: false
-    t.integer "business_id", null: false
-    t.string "date", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# create_table "reviews", force: :cascade do |t|
+#     t.string "body", null: false
+#     t.float "rating", null: false
+#     t.integer "user_id", null: false
+#     t.integer "business_id", null: false
+#     t.string "date", null: false
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#   end
