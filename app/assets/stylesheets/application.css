@@ -131,10 +131,10 @@ table {
     margin-left: 6px;
 }
 
-.session-signIn h3 {
+.session-signUp h3 {
     font-weight: bold;
 }
-.session-signIn a {
+.session-signUp a {
     text-decoration: none;
 }
 .session-logIn h3 {
@@ -181,25 +181,59 @@ footer ul {
     height: 600px;
     margin-top: 20%;
 }
-.header-icon {
-    width: 120px;
-    height: 80px;
-}
+
 .header input {
-    width: 200px;
+    width: 400px;
     height: 40px;
     font-size: 18px;
+}
+.header-icon img {
+    width: 120px;
+    height: 80px; 
     
 }
-.header button {
-    width: 50px;
-    height: 50px;
+.place-search {
+    margin-left: 20%;
 }
 .search {
     width: 60px;
     height: 46px;
+    margin-right: 5%;
 }
 .header {
     display:flex;
     flex-direction: row;
+    background-color: #F4F4F4;
+    padding: 20px;
+    align-items: center;
+    
+}
+.login-btn {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 30px;
+    
+}
+.signup-btn {
+    background-color: #f40d15;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.header a {
+    margin-right: 2%;
+}
+.header-icon {
+    width: 120px;
+    height: 80px;
+    
 }

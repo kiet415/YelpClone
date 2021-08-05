@@ -11,11 +11,12 @@ import Footer from './greeting/footer'
 const App = () => (
   <div>
     <Route exact path="/" component={GreetingContainer}/>
+    
     <Switch>
       <AuthRoute exact path="/login" component={LogInContainer}/>
       <AuthRoute exact path="/signup" component={SignUpContainer}/>
-      <AuthRoute exact path="/business" component={BusinessContainer} />
-      <AuthRoute exact path="/business/:id" component={BusinessShowContainer} />
+      <Route exact path="/business" component={BusinessContainer} />
+      <Route exact path="/business/:id" component={BusinessShowContainer} />
     </Switch>
     <Footer/>
   </div>

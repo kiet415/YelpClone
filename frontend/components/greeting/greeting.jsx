@@ -19,9 +19,15 @@ class Greeting extends React.Component {
     loggedOut = () => {
         return (
             <div className="logged-out-header">
-                <Link to="/login">Log In</Link>
+                <button className="login-btn">
+                    <Link to="/login">Log In</Link>
+                </button>
+                
                 &nbsp; &nbsp;
-                <Link to="/signup">Sign Up</Link>
+                <button className="signup-btn">
+                    <Link to="/signup">Sign Up</Link>
+                </button>
+                
             </div>
         )   
     }
