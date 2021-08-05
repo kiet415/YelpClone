@@ -65,7 +65,7 @@ table {
     flex-direction: column;
 }
 .session-header {
-    background-color: rgb(253, 41, 33);
+    background-color: #D32323;
     margin: -10px;
     height: 80px;
     text-align: center;
@@ -149,7 +149,7 @@ table {
 }
 .session-description {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 footer {
     
@@ -180,4 +180,26 @@ footer ul {
     background-color: #F4F4F4;
     height: 600px;
     margin-top: 20%;
+}
+.header-icon {
+    width: 120px;
+    height: 80px;
+}
+.header input {
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    
+}
+.header button {
+    width: 50px;
+    height: 50px;
+}
+.search {
+    width: 60px;
+    height: 46px;
+}
+.header {
+    display:flex;
+    flex-direction: row;
 }

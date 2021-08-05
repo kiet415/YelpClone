@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BusinessHeader from "./business_header"
 class BusinessShow extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +14,7 @@ class BusinessShow extends React.Component {
         console.log(this.props)
         return (
             <div>
+                <BusinessHeader/>
                 {this.props.business.name} 
                 <br/>
                 {this.props.business.location}
