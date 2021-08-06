@@ -21,6 +21,15 @@ export const createReview = review => (
     })
 );
 
+export const fetchReviews = businessId => (
+    $.ajax({
+        method: 'GET',
+        url: `api/businesses/${businessId}/reviews`
+    })
+);
+
+
+
 
 
   

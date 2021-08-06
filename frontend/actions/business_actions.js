@@ -16,11 +16,11 @@ export const receiveBusiness = ({ business, reviews }) => ({
 
 });
 
-export const receiveReview = ({ review, rating, author }) => ({
+export const receiveReview = ({ review, rating, user }) => ({
   type: RECEIVE_REVIEW,
   review,
   rating,
-  author,
+  user,
 });
 
 export const createReview = review => dispatch => (
@@ -28,7 +28,11 @@ export const createReview = review => dispatch => (
     dispatch(receiveReview(review))
   ))
 );
-
+export const fetchReview = id => dispatch => (
+  APIUtil.fetchReview(id).then(review => (
+    dispatch(receiveReview(review))
+  ))
+)
 export const fetchBusinesses = data => dispatch => (
   APIUtil.fetchBusinesses(data).then(businesses => (
     dispatch(receiveBusinesses(businesses))
