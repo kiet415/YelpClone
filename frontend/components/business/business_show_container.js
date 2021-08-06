@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BusinessShow from './business_show';
-import { fetchBusiness, fetchReviews } from '../../actions/business_actions';
+import { fetchBusiness } from '../../actions/business_actions';
 const mapStateToProps = (state, ownProps) => {
     //console.log(state.entities)
     return ({
@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = ( dispatch , ownProps) => ({
     fetchBusiness: () => dispatch(fetchBusiness(ownProps.match.params.id)),
-    fetchReviews: () => dispatch(fetchReviews(ownProps.match.params.id))
+    
 })
 
 

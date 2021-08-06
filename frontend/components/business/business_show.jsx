@@ -7,7 +7,7 @@ class BusinessShow extends React.Component {
     componentDidMount() {
         //console.log(this.props)
         this.props.fetchBusiness();
-        this.props.fetchReviews();
+        
     }
     getRatingsPicture = (rating) => {
         if(rating === 0) {
