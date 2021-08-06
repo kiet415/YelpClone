@@ -7,7 +7,7 @@ class BusinessShow extends React.Component {
     componentDidMount() {
         //console.log(this.props)
         this.props.fetchBusiness();
-        
+        this.props.fetchReviews();
     }
     getRatingsPicture = (rating) => {
         if(rating === 0) {
@@ -32,16 +32,20 @@ class BusinessShow extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
     }
+    
     render() {
-        console.log(this.props.business)
+        
         if(this.props.business === undefined) return null;
-        
+        console.log(this.props)
         let rating = this.getRatingsPicture(this.props.business.rating)
-        
+        let photo = {
+            backgroundImage: 'url(' + this.props.business.photos + ')',
+        }
         return (
+            
             <div>
                 <BusinessHeader/>
-                <div className="business-info">
+                <div className="business-info" style={photo}>
                     <div>
                         <h2 className="business-name">{this.props.business.name}</h2>
                         <div>
@@ -67,7 +71,12 @@ class BusinessShow extends React.Component {
                 
 
                 <h1>Reviews</h1>
-                
+                    {this.props.reviews.map(review => (
+                        <div>
+                            {review.body}
+                            {review.rating}
+                        </div>
+                    ))}
             </div>
         )
     }

@@ -2,14 +2,12 @@ class Api::ReviewsController < ApplicationController
     before_action :require_logged_in
 
     def index 
-        @reviews = Review.all
-    end
-    def show
-        @review = Review.find(params[:id])
+        @reviews = Review.where(business_id: params[:business_id])
+        render :index
     end
 
     def create 
-        @review = current_user.reviews.new(reviews).new(review_params)
+        @review = current_user.reviews.new(review_params)
 
         if @review.save
             render :show
@@ -19,6 +17,10 @@ class Api::ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:body, :rating, :business_id)
+        params.require(:review).permit(:body, :rating, :user)
+    end
+
+    def destroy 
+
     end
 end
