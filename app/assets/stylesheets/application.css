@@ -275,3 +275,16 @@ footer ul {
     height: 570px;
     
 }
+.business-times li{
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.business-times p {
+    width: 100px;
+    
+   
+    
+}

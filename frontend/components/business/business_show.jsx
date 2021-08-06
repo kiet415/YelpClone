@@ -38,7 +38,7 @@ class BusinessShow extends React.Component {
     render() {
         
         if(this.props.business === undefined) return null;
-        console.log(this.props)
+        //console.log(this.props)
         let rating = this.getRatingsPicture(this.props.business.rating)
         let photo = {
             backgroundImage: 'url(' + this.props.business.photos + ')',
@@ -61,7 +61,10 @@ class BusinessShow extends React.Component {
                 <span className="business-side-info">
                     <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a></div>
                     <div className="business-number">{this.props.business.phoneNumber}</div>
-                    <div className="business-location">{this.props.business.location}</div>
+                    <div className="business-location">
+                        {this.props.business.location} 
+                        <div>{this.props.business.city}, {this.props.business.zipCode}</div>
+                    </div>
                 </span>
                 
             
