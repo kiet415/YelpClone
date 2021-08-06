@@ -270,3 +270,8 @@ footer ul {
 .business-location {
     padding: 10px;
 }
+.home-main {
+    background-image: url("https://kelp-icon.s3.us-west-1.amazonaws.com/yelpmainresize.jpg");
+    height: 570px;
+    
+}

@@ -62,7 +62,7 @@ class BusinessShow extends React.Component {
                 <br/>
                 {this.props.business.openHours}
                 <br/>
-                {this.props.business.amenities}
+               
                 <br/>
                 
 
