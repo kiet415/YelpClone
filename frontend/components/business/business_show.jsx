@@ -1,5 +1,7 @@
 import React from 'react';
 import BusinessHeader from "./business_header"
+import ReviewItem from '../review/review_item'
+import BusinessTimes from './business_times'
 class BusinessShow extends React.Component {
     constructor(props) {
         super(props);
@@ -57,31 +59,35 @@ class BusinessShow extends React.Component {
                 </div>
                 
                 <span className="business-side-info">
-                    <div className="business-website"><a href={this.props.business.website}>{this.props.business.website}</a></div>
+                    <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a></div>
                     <div className="business-number">{this.props.business.phoneNumber}</div>
                     <div className="business-location">{this.props.business.location}</div>
                 </span>
                 
             
                 <br/>
-                {this.props.business.openHours}
-                <br/>
-               
+                <BusinessTimes 
+                    hours={this.props.business.openHours}
+                />
+           
+
                 <br/>
                 
 
                 <h1>Reviews</h1>
                     {this.props.reviews.map(review => (
-                        <div>
-                            {review.body}
-                            {review.rating}
-                        </div>
+                        <ReviewItem
+                            body={review.body}
+                            img={this.getRatingsPicture(review.rating)}
+                            key={review.id}
+                        
+                        />
                     ))}
             </div>
         )
     }
 }
 
-export default BusinessShow
+export default BusinessShow;
 
 
