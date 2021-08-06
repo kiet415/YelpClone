@@ -17,7 +17,7 @@
 #     t.string "categories"
 Business.delete_all
 User.delete_all
-
+Review.delete_all
 
 kiet = User.create!({email: 'kiet@yahoo.com', first_name: 'Kiet', last_name: "Nguyen", password:"aaaaaa"})
 
@@ -31,7 +31,7 @@ a = Business.create!({name: "Marugame Udon", location: "3251 20th Ave Space 184 
 
 
 b = Business.create!({name: "Dumpling Kitchen", location: "1935 Taraval St San Francisco, CA 94116",
-                    rating: 4, phone_number: "(415) 682-8938", website: "dumplingkitchenca.com",
+                    rating: 5, phone_number: "(415) 682-8938", website: "dumplingkitchenca.com",
                     open_hours: 'Mon 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Tue 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
                     Wed 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Thu 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM 
                     Fri 11:00 AM - 3:00 PM 5:00 PM - 9:30 PM Sat 11:00 AM - 9:30 PM Sun 11:00 AM - 9:30 PM',
@@ -39,6 +39,11 @@ b = Business.create!({name: "Dumpling Kitchen", location: "1935 Taraval St San F
                     num_rating: 1697, categories: 'Chinese'
 })
 
+
+
+c = Review.create!({body: "I love it here!", rating: 5, user_id: kiet.id, business_id: a.id, date: "8/5/21"})
+
+c = Review.create!({body: "I hate it here!", rating: 1, user_id: kiet.id, business_id: b.id, date: "8/2/21"})
 # create_table "reviews", force: :cascade do |t|
 #     t.string "body", null: false
 #     t.float "rating", null: false

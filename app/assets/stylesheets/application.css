@@ -237,3 +237,36 @@ footer ul {
     height: 80px;
     
 }
+.business-info {
+    background-image: url('https://s3-media0.fl.yelpcdn.com/bphoto/0pK937Q42JLCIYqJztL0OA/o.jpg');
+    height: 500px;
+    color: white;
+    font-size: 24px;
+}
+.business-name {
+    font-size: 48px;
+}
+.rating {
+    width: 180px;
+    height: 40px;
+}
+.business-side-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border:  1px solid lightgray;
+    font-size: 24px;
+    width: 20%;
+}
+.business-website {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    
+}
+.business-number {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.business-location {
+    padding: 10px;
+}
