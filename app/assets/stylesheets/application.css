@@ -238,8 +238,10 @@ footer ul {
     
 }
 .business-info {
-    
-    height: 500px;
+    height: 570px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%  ;
+    width: 100%;
     color: white;
     font-size: 24px;
 }
@@ -273,7 +275,9 @@ footer ul {
 .home-main {
     background-image: url("https://kelp-icon.s3.us-west-1.amazonaws.com/yelpmainresize.jpg");
     height: 570px;
-    
+    background-repeat: no-repeat;
+    background-size: 100% 100%  ;
+    width: 100%;
 }
 .business-times li{
     font-size: 24px;
@@ -284,7 +288,45 @@ footer ul {
 }
 .business-times p {
     width: 100px;
+}
+
+.navLinks a{
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+}
+.navStart {
+    display: flex;
+    width: 50%;
+}
+.navEnd {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+.navLinks {
+    padding-top: 30px;
+    display: flex;
+}
+.home-container {
+    margin: auto;
+    width: 1000px;
+    height: 100%;
+}
+.asd {
+    background-color: red;
+}
+.home-signUp {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.home-img {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
     
-   
-    
+}
+.home-img img {
+    width: 200px;
+    height: 200px;
 }

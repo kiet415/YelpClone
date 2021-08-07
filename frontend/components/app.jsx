@@ -11,7 +11,6 @@ import HomePage from "./greeting/home_page";
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
-    <Route exact path="/" component={GreetingContainer}/>
     <Route exact path="/" component={HomePage}/>
     <Switch>
       <AuthRoute exact path="/login" component={LogInContainer}/>
