@@ -20,10 +20,9 @@ class BusinessTimes extends React.Component {
         split.shift()
         for(let i = 0; i < split.length; i++) {
             if(!hash[split[i][0].toString()]) {
-                hash[split[i][0].toString()] = [split[i].slice(2)]
+                hash[split[i][0].toString()] = [<div className="top-hours">{split[i].slice(2)}</div>]
             } else {
-                hash[split[i][0]].push(" and ")
-                hash[split[i][0].toString()].push(split[i].slice(2))
+                hash[split[i][0]].push(<div>{split[i].slice(2)}</div>)
             }
         }
         
@@ -31,7 +30,7 @@ class BusinessTimes extends React.Component {
     }
     isClosed = (day) => {
         if (!day) {
-            return "closed";
+            return "Closed";
         } else {
             return day;
         }
@@ -41,13 +40,13 @@ class BusinessTimes extends React.Component {
         this.readHours();
         return (
             <ul className="business-times">
-                <li><p>Mon</p> {this.isClosed(hash[0])}</li>
-                <li><p>Tue</p> {this.isClosed(hash[1])}</li>
-                <li><p>Wed</p> {this.isClosed(hash[2])}</li>
-                <li><p>Thu</p> {this.isClosed(hash[3])}</li>
-                <li><p>Fri</p> {this.isClosed(hash[4])}</li>
-                <li><p>Sat</p> {this.isClosed(hash[5])}</li>
-                <li><p>Sun</p> {this.isClosed(hash[6])}</li>
+                <li><p>Mon</p> <div className="hours">{this.isClosed(hash[0])}</div></li>
+                <li><p>Tue</p> <div className="hours">{this.isClosed(hash[1])}</div></li>
+                <li><p>Wed</p> <div className="hours">{this.isClosed(hash[2])}</div></li>
+                <li><p>Thu</p> <div className="hours">{this.isClosed(hash[3])}</div></li>
+                <li><p>Fri</p> <div className="hours">{this.isClosed(hash[4])}</div></li>
+                <li><p>Sat</p> <div className="hours">{this.isClosed(hash[5])}</div></li>
+                <li><p>Sun</p> <div className="hours">{this.isClosed(hash[6])}</div></li>
             </ul>
         )
     }

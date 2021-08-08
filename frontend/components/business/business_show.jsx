@@ -44,48 +44,59 @@ class BusinessShow extends React.Component {
         }
         return (
             
-            <div >
+            <div className="">
                 <BusinessHeader/>
                 <div className="business-info" style={photo}>
-                    <div>
+                    <div className="business-desc">
                         <h2 className="business-name">{this.props.business.name}</h2>
                         <div>
                             <img className="rating" src={rating}></img>
                             {this.props.business.numRating} reviews
                         </div>
+                        {this.props.business.price}&nbsp;-&nbsp; 
                         {this.props.business.categories}
+                        
+
                     </div> 
                 </div>
                 <div className="business-body">
-                    <span className="business-side-info">
-                        <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a></div>
-                        <div className="business-number">{this.props.business.phoneNumber}</div>
-                        <div className="business-location">
-                            {this.props.business.location} 
-                            <div>{this.props.business.city}, {this.props.business.zipCode}</div>
-                        </div>
-                    </span>
+
+                   <div className="business-bodyLeft">
+                        <BusinessTimes 
+                            hours={this.props.business.openHours}
+                        />
+
+                        <h1 className="review-title">Recommended Reviews</h1>
+                            {this.props.reviews.map(review => (
+                                <ReviewItem
+                                    body={review.body}
+                                    img={this.getRatingsPicture(review.rating)}
+                                    date={review.date}
+                                    key={review.id}
+
+                                />
+                                
+                            ))}
+                     
+                   </div>
                     
-                
-                    <br/>
-                    <BusinessTimes 
-                        hours={this.props.business.openHours}
-                    />
-            
-
-                    <br/>
+                    <div className="business-bodyRight">
+                        <span className="business-side-info">
+                            <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a> <span><img src="https://static.thenounproject.com/png/640392-200.png"/></span></div>
+                            <div className="business-number"><span>{this.props.business.phoneNumber}</span><span><img src="https://cdn.iconscout.com/icon/free/png-256/phone-2666572-2212584.png"/></span></div>
+                            <div className="business-location">
+                                <div className="">
+                                    <div className="business-st">{this.props.business.location} </div>
+                                    <div>{this.props.business.city}, {this.props.business.zipCode}</div>
+                                </div>
+                                
+                                <span><img src="https://cdn.iconscout.com/icon/free/png-256/directions-1782209-1512759.png"/></span>
+                                
+                                
+                            </div>
+                        </span>
+                    </div>
                     
-
-                    <h1 className="review-title">Recommended Reviews</h1>
-                        {this.props.reviews.map(review => (
-                            <ReviewItem
-                                body={review.body}
-                                img={this.getRatingsPicture(review.rating)}
-                                date={review.date}
-                                key={review.id}
-
-                            />
-                        ))}
                 </div>
                 
             </div>

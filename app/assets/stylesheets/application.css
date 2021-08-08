@@ -246,7 +246,7 @@ footer ul {
     font-size: 24px;
 }
 .business-name {
-    font-size: 48px;
+    font-size: 54px;
 }
 .rating {
     width: 180px;
@@ -258,7 +258,7 @@ footer ul {
     padding: 10px;
     border:  1px solid lightgray;
     font-size: 24px;
-    width: 20%;
+    width: 500px
 }
 .business-website {
     padding: 10px;
@@ -391,6 +391,8 @@ footer ul {
     font-size: 40px;
 }
 .business-body {
+    display: flex;
+
     padding-top: 50px;
     padding-left: 50px;
 }
@@ -416,4 +418,54 @@ footer ul {
 .home-logOut:hover {
     cursor: pointer;
     background-color: red;
+}
+.home-signUp:hover {
+    background-color: red;
+}
+.home-logIn:hover {
+    background-color: red;
+}
+.business-side-info {
+    position: sticky;
+    top: 0;
+}
+.business-bodyLeft{
+    width: 50%;
+    padding-left: 10%;
+}
+
+
+.business-side-info img{
+    width: 30px;
+    height: 30px;
+}
+
+.business-website {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.business-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.business-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.business-st {
+    padding-bottom: 10px;
+}
+.hours {
+    padding-bottom: 10px;
+}
+.top-hours {
+    padding-bottom: 10px;
+}
+.business-desc{
+    margin: 10px;
+    padding-left: 10%;
 }

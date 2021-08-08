@@ -11,8 +11,8 @@ const Header = () => (
             <input type="text" placeholder="San Francisco"></input>
             <img className="search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
          
-            <a href="https://www.yelp.com/advertise/consumer_header_redirect">For Businesses</a>
-            <a href="https://www.yelp.com/writeareview">Write a Review</a>
+            <a href="https://github.com/kiet415">Github</a>
+            <a href="https://www.linkedin.com/in/kietnguyen7/">LinkedIn</a>
 
             <GreetingContainer/>
         </header>

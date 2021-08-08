@@ -17,7 +17,7 @@ class HomePage extends React.Component {
     loggedOut = () => {
         return (
             <div className="navEnd">
-                <Link to="/login">Log In</Link>
+                <Link className="home-logIn" to="/login">Log In</Link>
                 <Link className="home-signUp"to="/signup">Sign Up</Link>
             </div>
         )   
