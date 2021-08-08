@@ -8,7 +8,6 @@ class BusinessTimes extends React.Component {
         let str = ""
         console.log(str)
         let hash = {}
-        let ctr = 0;
         for(let i = 0; i < this.props.hours.length; i++) {
             for(let j = 0; j < this.props.hours[i].length; j++) {
                 if(this.props.hours[i][j] !== "'") {
@@ -39,7 +38,6 @@ class BusinessTimes extends React.Component {
     }
     render() {
         let hash = this.readHours();
-        console.log(hash)
         this.readHours();
         return (
             <ul className="business-times">

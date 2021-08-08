@@ -28,9 +28,16 @@ class HomePage extends React.Component {
                         </header>
                         
                         <div className="home-img">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Yelp_Logo.svg"></img>
+                            <Link to="/"><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/kelptransparent.png"></img></Link>
                         </div>
-                        
+
+                        <div className="home-search">
+                            <span className="spanA">Find</span><input className="home-category" type="text" placeholder="tacos, cheap dinner, Max's"></input>
+                            <span className="spanB">Near</span><input type="text" placeholder="San Francisco"></input>
+                            
+                            <img className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
+                            
+                        </div>
                         
 
                     </div>

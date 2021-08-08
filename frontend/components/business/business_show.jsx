@@ -9,7 +9,6 @@ class BusinessShow extends React.Component {
     componentDidMount() {
         //console.log(this.props)
         this.props.fetchBusiness();
-        
     }
     getRatingsPicture = (rating) => {
         if(rating === 0) {
@@ -45,7 +44,7 @@ class BusinessShow extends React.Component {
         }
         return (
             
-            <div>
+            <div >
                 <BusinessHeader/>
                 <div className="business-info" style={photo}>
                     <div>
@@ -57,35 +56,38 @@ class BusinessShow extends React.Component {
                         {this.props.business.categories}
                     </div> 
                 </div>
+                <div className="business-body">
+                    <span className="business-side-info">
+                        <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a></div>
+                        <div className="business-number">{this.props.business.phoneNumber}</div>
+                        <div className="business-location">
+                            {this.props.business.location} 
+                            <div>{this.props.business.city}, {this.props.business.zipCode}</div>
+                        </div>
+                    </span>
+                    
                 
-                <span className="business-side-info">
-                    <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a></div>
-                    <div className="business-number">{this.props.business.phoneNumber}</div>
-                    <div className="business-location">
-                        {this.props.business.location} 
-                        <div>{this.props.business.city}, {this.props.business.zipCode}</div>
-                    </div>
-                </span>
-                
+                    <br/>
+                    <BusinessTimes 
+                        hours={this.props.business.openHours}
+                    />
             
-                <br/>
-                <BusinessTimes 
-                    hours={this.props.business.openHours}
-                />
-           
 
-                <br/>
+                    <br/>
+                    
+
+                    <h1 className="review-title">Recommended Reviews</h1>
+                        {this.props.reviews.map(review => (
+                            <ReviewItem
+                                body={review.body}
+                                img={this.getRatingsPicture(review.rating)}
+                                date={review.date}
+                                key={review.id}
+
+                            />
+                        ))}
+                </div>
                 
-
-                <h1>Reviews</h1>
-                    {this.props.reviews.map(review => (
-                        <ReviewItem
-                            body={review.body}
-                            img={this.getRatingsPicture(review.rating)}
-                            key={review.id}
-                        
-                        />
-                    ))}
             </div>
         )
     }

@@ -1,5 +1,6 @@
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
+import * as APIUtil from '../util/business_api_util';
 
 export const receiveReview = ({ body, rating, userId }) => ({
     type: RECEIVE_REVIEW,

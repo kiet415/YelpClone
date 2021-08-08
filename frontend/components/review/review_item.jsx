@@ -8,9 +8,17 @@ class ReviewItem extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.body}
-                <img src={this.props.img}></img>
+            <div className="review-item-container">
+                BE ABLE TO GET USERS ID CONNECTED TO NAME HERE LATER
+                <div className="review-item-top">
+                    <img  src={this.props.img}></img>
+                    <span className="review-date">{this.props.date}</span>
+                </div>
+                <div className="review-item-body">
+                    {this.props.body}
+                </div>
+                
+                
             </div>
         )
     }
