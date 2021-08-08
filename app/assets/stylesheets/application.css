@@ -295,6 +295,9 @@ footer ul {
     font-size: 24px;
     color: white;
 }
+.navStart a:hover {
+    background-color: red;
+}
 .navStart {
     display: flex;
     width: 50%;
@@ -302,6 +305,7 @@ footer ul {
 .navEnd {
     display: flex;
     width: 50%;
+    align-items: center;
     justify-content: flex-end;
 }
 .navLinks {
@@ -395,4 +399,21 @@ footer ul {
 }
 .review-item-body {
     font-size: 24px;
+}
+.home-logOut {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px
+}
+.home-welcome {
+    font-size: 24px;
+    color: white;
+    padding-right: 20px;
+}
+.home-logOut:hover {
+    cursor: pointer;
+    background-color: red;
 }

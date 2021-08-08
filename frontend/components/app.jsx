@@ -7,11 +7,12 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util.jsx'
 import BusinessContainer from './business/business_index_container.js'
 import BusinessShowContainer from './business/business_show_container.js'
 import Footer from './greeting/footer'
-import HomePage from "./greeting/home_page";
+import HomePageContainer from "./greeting/home_page_container";
+
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
-    <Route exact path="/" component={HomePage}/>
+    <Route exact path="/" component={HomePageContainer}/>
     <Switch>
       <AuthRoute exact path="/login" component={LogInContainer}/>
       <AuthRoute exact path="/signup" component={SignUpContainer}/>

@@ -5,7 +5,23 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
     }
+    loggedIn = () => {
+        return (
+            <div className="navEnd">
+                <h1 className="home-welcome">Welcome {this.props.currentUser.firstName}</h1>
+                <button className="home-logOut" onClick={this.props.logout}>Log Out</button>
+            </div>
+        )
+    }
 
+    loggedOut = () => {
+        return (
+            <div className="navEnd">
+                <Link to="/login">Log In</Link>
+                <Link className="home-signUp"to="/signup">Sign Up</Link>
+            </div>
+        )   
+    }
     render() {
         return (
             <div className="homePage">
@@ -18,11 +34,8 @@ class HomePage extends React.Component {
                                     <a href="https://github.com/kiet415">Github</a>
                                     <a href="https://www.linkedin.com/in/kietnguyen7/">LinkedIn</a>
                                 </div>
-                                <div className="navEnd">
-                                    <Link to="/login">Log In</Link>
-                                    <Link className="home-signUp"to="/signup">Sign Up</Link>
-                                </div>
                                 
+                                {this.props.currentUser? this.loggedIn() : this.loggedOut()}
                             </nav>
                             
                         </header>
