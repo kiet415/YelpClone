@@ -9,6 +9,7 @@ class BusinessIndexItem extends React.Component {
         this.props.fetchBusiness(this.props.business.id);
         
     }
+    
     render() {
         if(this.props.business === undefined) return null;
         return (

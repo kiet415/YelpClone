@@ -469,3 +469,20 @@ footer ul {
     margin: 10px;
     padding-left: 10%;
 }
+.index-div {
+    display: flex;
+
+}
+.index-left {
+    width: 50%;
+}
+.index-right {
+    width: 50%;
+}
+
+.kelp-map {
+    position: sticky !important;
+    top:0 !important;
+    width: 95vh !important;
+    height: 100vh  !important;
+}
