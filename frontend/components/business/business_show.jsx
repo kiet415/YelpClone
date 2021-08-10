@@ -2,6 +2,9 @@ import React from 'react';
 import BusinessHeader from "./business_header"
 import ReviewItem from '../review/review_item'
 import BusinessTimes from './business_times'
+import { Link } from 'react-router-dom';
+import ReviewForm from '../review/review_form';
+import {withRouter} from "react-router-dom"
 class BusinessShow extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +40,7 @@ class BusinessShow extends React.Component {
     render() {
         
         if(this.props.business === undefined) return null;
-        //console.log(this.props)
+        console.log(this.props)
         let rating = this.getRatingsPicture(this.props.business.rating)
         let photo = {
             backgroundImage: 'url(' + this.props.business.photos + ')',
@@ -62,6 +65,12 @@ class BusinessShow extends React.Component {
                 <div className="business-body">
 
                    <div className="business-bodyLeft">
+                       
+                        <button className="review-link">
+                            <Link to={`/business/${this.props.business.id}/new-review`}
+                            > Write a Review</Link> 
+                        </button>
+                        
                         <BusinessTimes 
                             hours={this.props.business.openHours}
                         />
@@ -73,7 +82,8 @@ class BusinessShow extends React.Component {
                                     img={this.getRatingsPicture(review.rating)}
                                     date={review.date}
                                     key={review.id}
-
+                                    firstName={review.firstName}
+                                    lastName={review.lastName}
                                 />
                                 
                             ))}

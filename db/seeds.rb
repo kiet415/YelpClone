@@ -259,9 +259,9 @@ b248= Business.create(name: "Bouche", location: '603 Bush St', city: 'San Franci
 b249= Business.create(name: "Chez Panisse", location: '1517 Shattuck Ave', city: 'Berkeley', zipCode: 94709,lat: 37.879664,lng: -122.26894,phone_number: '(510) 548-5525', website: 'https://www.yelp.com/biz/chez-panisse-berkeley?adjust_creative=l_acZaAXVm4MfqBj0TwLyQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=l_acZaAXVm4MfqBj0TwLyQ', price: '$$$$', rating: '4.0', num_rating: '2851', open_hours: "['D2 12:00am-03:00pm', 'D2 04:30pm-07:00pm', 'D3 12:00am-03:00pm', 'D3 04:30pm-07:00pm', 'D4 12:00am-03:00pm', 'D4 04:30pm-07:00pm', 'D5 12:00am-03:00pm', 'D5 04:30pm-07:00pm', 'D6 12:00am-03:00pm']", categories: 'American (New)', photos: 'https://s3-media2.fl.yelpcdn.com/bphoto/LDM_1qIyYMuI1Z9jgWSGrg/o.jpg',)
 
 
-c = Review.create!({body: 'I love it here!', rating: 5, user_id: kiet.id, business_id: b5.id, date: '8/5/21'})
+c = Review.create!({body: 'I love it here!', rating: 5, user_id: kiet.id, business_id: b5.id, date: '8/5/21', first_name: kiet.first_name, last_name: kiet.last_name})
 
-d = Review.create!({body: 'I hate it here!', rating: 1, user_id: kiet.id, business_id: b6.id, date: '8/2/21'})
+d = Review.create!({body: 'I hate it here!', rating: 1, user_id: kiet.id, business_id: b6.id, date: '8/2/21', first_name: kiet.first_name, last_name: kiet.last_name})
 # create_table 'reviews', force: :cascade do |t|
 #     t.string 'body', null: false
 #     t.float 'rating', null: false

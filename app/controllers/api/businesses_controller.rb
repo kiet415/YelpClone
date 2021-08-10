@@ -3,11 +3,16 @@ class Api::BusinessesController < ApplicationController
 
     def index 
         @businesses = bounds ? Business.in_bounds(bounds) : Business.all
+        #@businesses = Business.all
         render "api/businesses/index"
     end
 
     def show
         @business = Business.find(params[:id])
         render "api/businesses/show"
+    end
+
+    def bounds
+        params[:bounds]
     end
 end

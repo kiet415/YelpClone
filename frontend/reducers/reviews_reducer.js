@@ -1,6 +1,7 @@
 import {
     RECEIVE_REVIEW,
     RECEIVE_REVIEWS,
+    UPDATE_REVIEW,
   } from '../actions/review_actions';
 import {
     RECEIVE_BUSINESS
@@ -11,7 +12,7 @@ const reviewsReducer = (state = {}, action) => {
         case RECEIVE_BUSINESS:
             return action.reviews || {};
         case RECEIVE_REVIEW:
-            const { review } = action;
+            const review = action.payload.review;
             return Object.assign({}, state, { [review.id]: review });
         case RECEIVE_REVIEWS:
             return action.reviews;

@@ -17,6 +17,7 @@ class Search extends React.Component {
                     businesses={this.props.businesses}
                     fetchBusinesses={this.props.fetchBusinesses}
                     fetchBusiness={this.props.fetchBusiness}
+                    updateFilter={this.props.updateFilter}
                 />
                    
                 

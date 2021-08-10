@@ -8,6 +8,7 @@ import BusinessShowContainer from './business/business_show_container.js'
 import Footer from './greeting/footer'
 import HomePageContainer from "./greeting/home_page_container";
 import SearchContainer from "./search/search_container"
+import ReviewContainer from "./review/review_form_container"
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignUpContainer}/>
       <Route exact path="/business" component={SearchContainer} />
       <Route exact path="/business/:id" component={BusinessShowContainer} />
+      <Route exact path="/business/:id/new-review" component={ReviewContainer} />
     </Switch>
     <Footer/>
   </div>

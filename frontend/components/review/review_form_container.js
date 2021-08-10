@@ -1,12 +1,22 @@
 import { connect } from 'react-redux';
 
-import { createReview } from '../../actions/business_actions.js';
+import {fetchBusiness } from '../../actions/business_actions.js';
+import { createReview } from '../../actions/review_actions.js';
 import ReviewForm from './review_form';
 
-const mapDispatchToProps = dispatch => ({
-    createReview: review => dispatch(createReview(review))
+const mapStateToProps = (state , ownProps) => {
+    
+    return  ({
+        user: state.entities.users[state.session.id], 
+        business: state.entities.businesses[ownProps.match.params.id]
+    })
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    createReview: review => dispatch(createReview(review)),
+    fetchBusiness: () => dispatch(fetchBusiness(ownProps.match.params.id))
 });
   
 
 
-export default connect(null, mapDispatchToProps)(ReviewForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
