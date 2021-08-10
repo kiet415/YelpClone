@@ -43,7 +43,15 @@ class ReviewForm extends React.Component {
     }
     render() {
         if(this.props.business === undefined) return null;
-        let placeholder=`Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hambuger and wow.. there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles).  There's about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can't go wrong. Not much else to say besides go see for yourself! You won't be disapointed.`
+        let placeholder=`
+        Doesn't look like much when you walk past, but I was practically dying of 
+        hunger so I popped in. The definition of a hole-in-the-wall. I got the regular
+        hambuger and wow.. there are no words. A classic burger done right. Crisp 
+        bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce,
+        tomato, and pickles). There's about a million options available between the
+        menu board and wall full of specials, so it can get a little overwhelming, but 
+        you really can't go wrong. Not much else to say besides go see for yourself! 
+        You won't be disapointed.`
         
         return (
             <div>
@@ -55,7 +63,7 @@ class ReviewForm extends React.Component {
                     </div>
                     <div className="review-box"> 
                         <form onSubmit={this.handleSubmit}>
-                            <label>Rating</label>
+                            
                             <input
                                 type="number"
                                 value={this.state.rating}
@@ -66,20 +74,18 @@ class ReviewForm extends React.Component {
                                 min="1"
                                 max="5"
                             />
+                            <label>Select your rating</label>
                             <br/>
-                            <input 
-                                type="text"
-                                
+                            <textarea
                                 value={this.state.body}
                                 onChange={this.update('body')}
                                 placeholder={placeholder}
                                 className="review-body"
-                            > </input>
+                            /> 
 
-                            <input type="submit" value="Post Review"/>
+                            <input className="form-btn" type="submit" value="Post Review"/>
                         </form>
                     </div>
-                    <button onClick={this.navigateToBusinessShow}>Cancel</button>
                 </div>
             </div>
         )
