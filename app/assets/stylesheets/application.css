@@ -529,7 +529,11 @@ footer ul {
 }
 .item-name {
     font-size: 32px;
-    
+    color: black;
+}
+.item-name:hover {
+    border-bottom: 3px solid black;
+    cursor: pointer;
 }
 .index-info {
     padding: 20px;
@@ -572,4 +576,11 @@ footer ul {
     padding: 10px 30px 10px 30px;
     border-radius: 3px;
     
+}
+.index-review img {
+    width: 20px;
+    height: 20px;
+}
+.index-review {
+    color: gray;
 }

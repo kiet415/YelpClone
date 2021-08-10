@@ -11,6 +11,7 @@ class BusinessIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchBusinesses();
+        //this.props.updateFilter();
     }
     getRatingsPicture = (rating) => {
         if(rating === 0) {
@@ -35,7 +36,9 @@ class BusinessIndex extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
     }
+   
     render() {
+
         // if(this.props.{variable} === undefined) return null;
         if (Object.values(this.props.businesses).length === 0) return null;
         return (
@@ -48,10 +51,10 @@ class BusinessIndex extends React.Component {
 
                     
                     {this.props.businesses.map(business => (
-                        <div className="index-item" key={business.id}>
+                        <div className="index-item"  key={business.id}>
                             <div className="index-img">
                                 <img src={business.photos}/>
-                            </div>
+                         </div>
                             <div className="index-info">
                             
                             {/* <Link to={`/business/${business.id}`}> */}
@@ -62,8 +65,8 @@ class BusinessIndex extends React.Component {
                                 />
                             {/* </Link> */}
                             <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
-                            <div>{business.categories}</div>
-                            <div>{business.review ? business.review.body : "No reviews yet" } </div>
+                            <div>{business.categories} - {business.price} - {business.city} </div>
+                            <div> {business.review ?<div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
                             </div>
                         </div>
                     ))}
@@ -73,7 +76,9 @@ class BusinessIndex extends React.Component {
                 <div className="index-right">
                     <KelpMap 
                         businesses={this.props.businesses}
-                        
+                        updateFilter={this.props.updateFilter}
+                        singleBusiness={true}
+                        fetchBusiness={this.props.fetchBusiness}
                     />
                 </div>
                 

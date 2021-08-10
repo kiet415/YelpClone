@@ -13,12 +13,12 @@ class KelpMap extends React.Component {
       // wrap this.mapNode in a Google Map
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new MarkerManager(this.map);
-      if(this.props.singleBusiness) {
-        this.props.fetchBusiness(this.props.businessId);
-      } else {
+      // if(this.props.singleBusiness) {
+      //   this.props.fetchBusiness(this.props.businessId);
+      // } else {
         this.registerListeners();
         this.MarkerManager.updateMarkers(this.props.businesses)
-      }
+      //}
 
     }
     componentDidUpdate() {

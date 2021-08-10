@@ -15,4 +15,7 @@ class Api::BusinessesController < ApplicationController
     def bounds
         params[:bounds]
     end
+    def business_params 
+        params.require(:business).permit(:lat, :lng, :price, :categories, :photo)
+    end
 end
