@@ -43,41 +43,44 @@ class ReviewForm extends React.Component {
     }
     render() {
         if(this.props.business === undefined) return null;
-        console.log(this.props)
+        let placeholder=`Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hambuger and wow.. there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles).  There's about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can't go wrong. Not much else to say besides go see for yourself! You won't be disapointed.`
         
         return (
             <div>
-            <BusinessHeader/>
-            
-             {this.props.business.name}
-                <div className="review-box"> 
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Rating</label>
-                        <input
-                            type="number"
-                            value={this.state.rating}
-                            placeholder="5"
-                            onChange={this.update("rating")}
-                            className="review-rating"
-                            maxLength="3"
-                            min="1"
-                            max="5"
-                        />
-                        <br/>
-                        <input 
-                            type="text"
-                            cols="30"
-                            rows="10"
-                            value={this.state.body}
-                            onChange={this.update('body')}
-                            placeholder="I really love this place!"
-                            className="review-body"
-                        />
+                <BusinessHeader/>
+                <div className="form-page">
+                    <div className="form-title">
+                        <div>{this.props.business.name} </div>
+                        <a href="https://www.yelp.com/guidelines">Read our review guidelines</a>
+                    </div>
+                    <div className="review-box"> 
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Rating</label>
+                            <input
+                                type="number"
+                                value={this.state.rating}
+                                placeholder="5"
+                                onChange={this.update("rating")}
+                                className="review-rating"
+                                maxLength="3"
+                                min="1"
+                                max="5"
+                            />
+                            <br/>
+                            <input 
+                                type="text"
+                                
+                                value={this.state.body}
+                                onChange={this.update('body')}
+                                placeholder={placeholder}
+                                className="review-body"
+                            > </input>
 
-                        <input type="submit" value="Post Review"/>
-                    </form>
+                            <input type="submit" value="Post Review"/>
+                        </form>
+                    </div>
+                    <button onClick={this.navigateToBusinessShow}>Cancel</button>
                 </div>
-                <button onClick={this.navigateToBusinessShow}>Cancel</button>
             </div>
         )
     }

@@ -67,6 +67,7 @@ class BusinessShow extends React.Component {
                    <div className="business-bodyLeft">
                        
                         <button className="review-link">
+        
                             <Link to={`/business/${this.props.business.id}/new-review`}
                             > Write a Review</Link> 
                         </button>

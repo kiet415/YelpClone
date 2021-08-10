@@ -14,7 +14,7 @@ class BusinessIndexItem extends React.Component {
         if(this.props.business === undefined) return null;
         return (
             <div>
-                <Link to={`/business/${this.props.business.id}`} >
+                <Link className="item-name"to={`/business/${this.props.business.id}`} >
                     {this.props.business.name} 
                     
                 </Link>
