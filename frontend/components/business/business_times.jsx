@@ -39,14 +39,14 @@ class BusinessTimes extends React.Component {
         let hash = this.readHours();
         this.readHours();
         return (
-            <ul className="business-times">
-                <li><p>Mon</p> <div className="hours">{this.isClosed(hash[0])}</div></li>
-                <li><p>Tue</p> <div className="hours">{this.isClosed(hash[1])}</div></li>
-                <li><p>Wed</p> <div className="hours">{this.isClosed(hash[2])}</div></li>
-                <li><p>Thu</p> <div className="hours">{this.isClosed(hash[3])}</div></li>
-                <li><p>Fri</p> <div className="hours">{this.isClosed(hash[4])}</div></li>
-                <li><p>Sat</p> <div className="hours">{this.isClosed(hash[5])}</div></li>
-                <li><p>Sun</p> <div className="hours">{this.isClosed(hash[6])}</div></li>
+            <ul className="business-times" >
+                <li key="mon"><p>Mon</p> <div className="hours">{this.isClosed(hash[0])}</div></li>
+                <li key="tue"><p>Tue</p> <div className="hours">{this.isClosed(hash[1])}</div></li>
+                <li key="wed"><p>Wed</p> <div className="hours">{this.isClosed(hash[2])}</div></li>
+                <li key="thu"><p>Thu</p> <div className="hours">{this.isClosed(hash[3])}</div></li>
+                <li key="fri"><p>Fri</p> <div className="hours">{this.isClosed(hash[4])}</div></li>
+                <li key="sat"><p>Sat</p> <div className="hours">{this.isClosed(hash[5])}</div></li>
+                <li key="sun"><p>Sun</p> <div className="hours">{this.isClosed(hash[6])}</div></li>
             </ul>
         )
     }

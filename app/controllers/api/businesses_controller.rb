@@ -2,7 +2,7 @@ class Api::BusinessesController < ApplicationController
     before_action :require_logged_in, only: [:create]
 
     def index 
-        @businesses = bounds ? Business.in_bounds(bounds) : Business.all
+        @businesses = bounds ? Business.in_bounds(bounds).includes(:reviews) : Business.all.includes(:reviews)
         #@businesses = Business.all
         render "api/businesses/index"
     end

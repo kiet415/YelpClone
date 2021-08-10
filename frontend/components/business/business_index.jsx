@@ -48,24 +48,22 @@ class BusinessIndex extends React.Component {
 
                     
                     {this.props.businesses.map(business => (
-                        <div className="index-item">
+                        <div className="index-item" key={business.id}>
                             <div className="index-img">
                                 <img src={business.photos}/>
                             </div>
                             <div className="index-info">
                             
-                            <Link to={`/business/${business.id}`} 
-                                key={business.id}>
+                            {/* <Link to={`/business/${business.id}`}> */}
                                 
                                 <BusinessIndexItem
                                     business={business}
                                     fetchBusiness={this.props.fetchBusiness}
-                                    
                                 />
-                            </Link>
+                            {/* </Link> */}
                             <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
                             <div>{business.categories}</div>
-                            <div>Review here</div>
+                            <div>{business.review ? business.review.body : "No reviews yet" } </div>
                             </div>
                         </div>
                     ))}
@@ -75,6 +73,7 @@ class BusinessIndex extends React.Component {
                 <div className="index-right">
                     <KelpMap 
                         businesses={this.props.businesses}
+                        
                     />
                 </div>
                 

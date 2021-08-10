@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import { fetchBusinesses, fetchBusiness } from '../../actions/business_actions';
 import Search from "./search"
 import { updateFilter } from '../../actions/filter_actions';
+import {asArray} from '../../reducers/selectors'
 const mapStateToProps = state => {
     return ({
-        businesses: Object.values(state.entities.businesses)
+        businesses: asArray(state.entities)
     
     })
 }
