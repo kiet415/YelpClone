@@ -1,8 +1,8 @@
-export const fetchBusinesses = data => (
+export const fetchBusinesses = filters => (
     $.ajax({
       method: 'GET',
       url: 'api/businesses',
-      data
+      filters
     })
   );
   
@@ -16,9 +16,31 @@ export const fetchBusiness = id => (
 export const createReview = review => (
     $.ajax({
         method: 'POST',
-        url: 'api/reviews',
+        url: `api/businesses/${review.business_id}/reviews`,
         data: { review }
     })
 );
+
+export const fetchReviews = businessId => (
+    $.ajax({
+        method: 'GET',
+        url: `api/businesses/${businessId}/reviews`
+    })
+);
+
+export const updateReview = review => (
+    $.ajax({
+        method: "PATCH",
+        url: `api/businesses/${review.business_id}/reviews/${review.id}`,
+        data: {review}
+    })
+)
+
+
+
+
+
+
+
 
   
