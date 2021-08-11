@@ -37,6 +37,14 @@ class SessionForm extends React.Component {
         </ul>
       );
     }
+    demoLogIn = (e) => {
+      e.preventDefault();
+      let demo = {
+        email: "DemoUser",
+        password: "demouser"
+      }
+      this.props.demoLogIn(demo);
+    }
     render() {
 
         return(
@@ -76,6 +84,8 @@ class SessionForm extends React.Component {
                         onChange={this.update('password')}
                         />
                       <button type="submit">{this.props.formType} </button>
+                      <button onClick={this.demoLogIn}className="demo-logIn" type="submit" >Demo Log In</button>
+
                     </ul>
                   </div>
                   :
@@ -129,7 +139,6 @@ class SessionForm extends React.Component {
                   }
                   
                   </form>
-                  
                 </div>
                 
                 <div className="session-pic">
