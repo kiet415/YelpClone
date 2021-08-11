@@ -5,7 +5,8 @@ import { updateFilter } from '../../actions/filter_actions';
 import {asArray} from '../../reducers/selectors'
 const mapStateToProps = state => {
     return ({
-        businesses: asArray(state.entities),
+        //businesses: asArray(state.entities),
+        businesses: Object.values(state.entities.businesses),
         price: state.ui.filters.price,
         categories: state.ui.filters.price
     

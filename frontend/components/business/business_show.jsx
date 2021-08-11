@@ -10,7 +10,6 @@ class BusinessShow extends React.Component {
         super(props);
     }
     componentDidMount() {
-        //console.log(this.props)
         this.props.fetchBusiness();
     }
     getRatingsPicture = (rating) => {
@@ -40,11 +39,11 @@ class BusinessShow extends React.Component {
     render() {
         
         if(this.props.business === undefined) return null;
-        console.log(this.props)
         let rating = this.getRatingsPicture(this.props.business.rating)
         let photo = {
-            backgroundImage: 'url(' + this.props.business.photos + ')',
+            backgroundImage: 'url(' + this.props.business.pictures + ')',
         }
+        
         return (
             
             <div className="">
@@ -71,7 +70,9 @@ class BusinessShow extends React.Component {
                             <Link to={`/business/${this.props.business.id}/new-review`}
                             > Write a Review</Link> 
                         </button>
-                        
+                        {/* <button className="add-photo">
+                            Add Photo
+                        </button> */}
                         <BusinessTimes 
                             hours={this.props.business.openHours}
                         />

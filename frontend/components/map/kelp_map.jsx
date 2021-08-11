@@ -21,9 +21,9 @@ class KelpMap extends React.Component {
       // if(this.props.singleBusiness) {
       //   this.props.fetchBusiness(this.props.businessId);
       // } else {
-        this.registerListeners();
-        this.MarkerManager.updateMarkers(this.props.businesses)
-      //}
+      //this.registerListeners();
+       this.MarkerManager.updateMarkers(this.props.businesses)
+      // }
 
     }
     componentDidUpdate() {
