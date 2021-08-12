@@ -466,8 +466,29 @@ footer ul {
     padding-bottom: 10px;
 }
 .business-desc{
-    margin: 10px;
+    
     padding-left: 10%;
+    padding-top: 300px;
+    margin-left: 50px;
+    width: 1800px;
+}
+.allPhotos-show button {
+    
+    font-size: 24px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid white;
+    padding: 10px 20px 10px 20px;
+}
+.allPhotos-show a {
+    background-color: transparent;
+    color: white;
+
+}
+.allPhotos-show {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
 }
 .index-div {
     display: flex;
@@ -600,4 +621,37 @@ footer ul {
     border: 1px lightgray dotted;
     width: 1000px;
     height: 500px;
+}
+
+.photos-page {
+    padding-left: 10%;
+    width: 1400px;
+}
+.photos-top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+.photos-title {
+    font-size: 42px;
+}
+
+.photos-review-link {
+    border: none;
+    color: white;
+    background-color: red;
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: 28px;
+}
+.photos-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: inherit;
+}
+.photos-div img {
+    padding-top: 50px;
+    width: 200px;
+    height: 200px;
+    padding-right: 20px;
 }

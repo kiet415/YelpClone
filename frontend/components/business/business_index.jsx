@@ -51,9 +51,10 @@ class BusinessIndex extends React.Component {
 
                     
                     {this.props.businesses.map(business => (
+                        
                         <div className="index-item"  key={business.id}>
                             <div className="index-img">
-                                <img src={business.pictures}/>
+                                <img src={business.pictures[0]}/>
                          </div>
                             <div className="index-info">
                                 <BusinessIndexItem
@@ -61,7 +62,16 @@ class BusinessIndex extends React.Component {
                                     fetchBusiness={this.props.fetchBusiness}
                                 />
                             <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
-                            <div> {business.categories} - {business.price} - {business.city} </div>
+                            <div> 
+                                {business.categories.map((cate, idx) => 
+                                
+                                (idx !== business.categories.length-1) ? 
+                                        <span> {cate} - </span> 
+                                        : 
+                                        <span> {cate} </span> 
+                                )}
+                            </div>  
+                            <div>{business.price} - {business.city} </div>
                             <div> {business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
                             </div>
                         </div>

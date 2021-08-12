@@ -37,13 +37,19 @@ class BusinessShow extends React.Component {
     }
     
     render() {
-        console.log(this.props)
         if(this.props.business === undefined) return null;
         let rating = this.getRatingsPicture(this.props.business.rating)
         let photo = {
-            backgroundImage: 'url(' + this.props.business.pictures + ')',
+            backgroundImage: 'url(' + this.props.business.pictures[0] + ')',
         }
-        
+        let photo1 = {
+            backgroundImage: 'url(' + this.props.business.pictures[1] + ')',
+        }
+        let photo2 = {
+            backgroundImage: 'url(' + this.props.business.pictures[2] + ')',
+        }
+
+        console.log(this.props.business);
         return (
             
             <div className="">
@@ -55,15 +61,21 @@ class BusinessShow extends React.Component {
                             <img className="rating" src={rating}></img>
                             {this.props.business.numRating} reviews
                         </div>
-                        {this.props.business.price}&nbsp;-&nbsp; 
-                        {this.props.business.categories}
                         
-
+                        
+                        
+                        <div className="allPhotos-show">
+                            <div>
+                                {this.props.business.price}&nbsp;-&nbsp; 
+                                {this.props.business.categories}
+                            </div>
+                            
+                            
+                            <button><Link to={`/business/${this.props.business.id}/all-photos`}
+                                >See All Photos</Link> </button>    
+                        </div> 
                     </div>
-                    <div className="allPhotos">
-                        <button><Link to={`/business/${this.props.business.id}/all-photos`}
-                            >See All Photos</Link> </button>    
-                    </div> 
+                    
                 </div>
                 <div className="business-body">
 

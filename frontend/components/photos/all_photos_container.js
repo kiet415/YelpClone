@@ -5,6 +5,7 @@ import AllPhotos from "./all_photos"
 
 const mapStateToProps = (state , ownProps) => {
     return  ({
+        id: state.session.id,
         business: state.entities.businesses[ownProps.match.params.id]
     })
 }
