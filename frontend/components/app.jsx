@@ -9,6 +9,8 @@ import Footer from './greeting/footer'
 import HomePageContainer from "./greeting/home_page_container";
 import SearchContainer from "./search/search_container"
 import ReviewContainer from "./review/review_form_container"
+import PhotosFormContainer from "./photos/photos_form_container"
+import AllPhotosContainer from "./photos/all_photos_container"
 // import kelpIcon from '../../app/assets/images/yelp.jpg'
 const App = () => (
   <div>
@@ -19,6 +21,8 @@ const App = () => (
       <Route exact path="/business" component={SearchContainer} />
       <Route exact path="/business/:id" component={BusinessShowContainer} />
       <Route exact path="/business/:id/new-review" component={ReviewContainer} />
+      <Route exact path="/business/:id/new-photo" component={PhotosFormContainer} />
+      <Route exact path="/business/:id/all-photos" component={AllPhotosContainer} />
     </Switch>
     <Footer/>
   </div>

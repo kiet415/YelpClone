@@ -15,7 +15,16 @@ class Api::BusinessesController < ApplicationController
     def bounds
         params[:bounds]
     end
+
+    def update
+        @business = Business.find(params[:id])
+        
+        @business.photos.attach(params[:business][:photos])
+       
+        render "api/businesses/show"
+    end
+    
     def business_params 
-        params.require(:business).permit(:lat, :lng, :price, :categories, :photo)
+        params.require(:business).permit(:lat, :lng, :price, :categories, photos: [])
     end
 end

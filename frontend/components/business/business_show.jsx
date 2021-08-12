@@ -37,7 +37,7 @@ class BusinessShow extends React.Component {
     }
     
     render() {
-        
+        console.log(this.props)
         if(this.props.business === undefined) return null;
         let rating = this.getRatingsPicture(this.props.business.rating)
         let photo = {
@@ -59,6 +59,10 @@ class BusinessShow extends React.Component {
                         {this.props.business.categories}
                         
 
+                    </div>
+                    <div className="allPhotos">
+                        <button><Link to={`/business/${this.props.business.id}/all-photos`}
+                            >See All Photos</Link> </button>    
                     </div> 
                 </div>
                 <div className="business-body">
@@ -68,11 +72,13 @@ class BusinessShow extends React.Component {
                         <button className="review-link">
         
                             <Link to={`/business/${this.props.business.id}/new-review`}
-                            > Write a Review</Link> 
+                            >Write a Review</Link> 
                         </button>
-                        {/* <button className="add-photo">
-                            Add Photo
-                        </button> */}
+                        <button className="review-link">
+                        <Link to={`/business/${this.props.business.id}/new-photo`}
+                            >Add Photo</Link> 
+                            
+                        </button>
                         <BusinessTimes 
                             hours={this.props.business.openHours}
                         />

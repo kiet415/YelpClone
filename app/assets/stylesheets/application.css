@@ -492,10 +492,13 @@ footer ul {
     font-size: 24px;
     padding: 10px;
     margin-bottom: 50px;
+    margin-right: 20px;
+    color: white;
 }
 .review-link a {
     color: white;
 }
+
 
 .review-box {
     padding: 20px;
@@ -584,4 +587,17 @@ footer ul {
 }
 .index-review {
     color: gray;
+}
+.photos-page {
+    margin-left: 20%;
+}
+.photos-header {
+    font-size: 42px;
+    
+}
+
+.photos-box {
+    border: 1px lightgray dotted;
+    width: 1000px;
+    height: 500px;
 }
