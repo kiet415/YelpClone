@@ -7,7 +7,9 @@ class ReviewForm extends React.Component {
         this.state = {
             rating: 5,
             body: '',
-            id: ''
+            id: '',
+            category:'',
+            location:'',
         }
     }
     componentDidMount() {
@@ -41,6 +43,15 @@ class ReviewForm extends React.Component {
     update(field) {
         return e =>this.setState({ [field]: e.currentTarget.value});
     }
+
+    // update = (field, e) => {
+    //     this.setState({ [field]: e.currentTarget.value});
+    // }
+    // handleSearch = () => {
+    //     let obj = {category: this.state.category, location: this.state.location}
+    //     this.props.history.push("/business")
+    //     this.props.fetchBusinesses(obj);
+    // }
     render() {
         if(this.props.business === undefined) return null;
         let placeholder=`
@@ -56,7 +67,12 @@ class ReviewForm extends React.Component {
         return (
             
             <div>
-                <BusinessHeader/>
+                <BusinessHeader
+                location={this.state.location}
+                category={this.state.category}
+                update={this.update}
+                handleSearch={this.handleSearch}
+                />
                 <div className="form-page">
                     <div className="form-title">
                         <div>{this.props.business.name} </div>

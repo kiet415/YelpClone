@@ -76,6 +76,9 @@ table {
     flex-direction: column;
     
 }
+.demo-logIn {
+   margin-top: 5px;
+}
 .session-formType {
     color: red;
     font-size: 28px;
@@ -772,4 +775,5 @@ footer ul {
 }
 .home-items {
     padding: 20px;
+    width: 500px;
 }

@@ -8,6 +8,10 @@ import KelpMap from "../map/kelp_map"
 class BusinessShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            category: '',
+            location: '',
+        }
     }
     componentDidMount() {
         this.props.fetchBusiness();
@@ -34,6 +38,15 @@ class BusinessShow extends React.Component {
         } else if (rating === 5) {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
+    }
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        this.props.history.push("/business")
+        this.props.fetchBusinesses(obj)
+
     }
     checkReviews() {
         if(this.props.reviews.length > 0) {
@@ -76,7 +89,12 @@ class BusinessShow extends React.Component {
         return (
             
             <div className="">
-                <BusinessHeader/>
+                <BusinessHeader
+                location={this.state.location}
+                category={this.state.category}
+                update={this.update}
+                handleSearch={this.handleSearch}
+                />
                 <div className="business-info">
                     <div className="business-info1" style={photo}>
                         <div className="business-desc">
