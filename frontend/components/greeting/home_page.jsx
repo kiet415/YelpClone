@@ -5,14 +5,19 @@ import BusinessIndexItem from "../business/business_index_item";
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            category: '',
+            location: '',
+        }
     }
+
     componentDidMount() {
         this.props.fetchBusinesses();
     }
     loggedIn = () => {
         return (
             <div className="navEnd">
-                <h1 className="home-welcome">Welcome {this.props.currentUser.firstName}</h1>
+                <h1 className="home-welcome">Welcome {this.props.user[this.props.currentUser].firstName}</h1>
                 <button className="home-logOut" onClick={this.props.logout}>Log Out</button>
             </div>
         )
@@ -31,7 +36,6 @@ class HomePage extends React.Component {
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
-        console.log(res)
         return res;
     }
     getRatingsPicture = (rating) => {
@@ -57,6 +61,15 @@ class HomePage extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
     }
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        this.props.history.push("/business")
+        //this.props.fetchBusinesses(obj);
+    }
+
     render() {
         if(this.props.businesses === undefined) return null;
         let idx = this.randomNumbers();
@@ -66,11 +79,11 @@ class HomePage extends React.Component {
 
                 <div className="home-main">
                     <div className="home-container">   
-                        <header>
+                        <header >
                             <nav className="navLinks">
                                 <div className="navStart">
-                                    <a href="https://github.com/kiet415">Github</a>
-                                    <a href="https://www.linkedin.com/in/kietnguyen7/">LinkedIn</a>
+                                    <a className="github" href="https://github.com/kiet415">Github</a>
+                                    <a className="linked-in"href="https://www.linkedin.com/in/kietnguyen7/">LinkedIn</a>
                                 </div>
                                 
                                 {this.props.currentUser? this.loggedIn() : this.loggedOut()}
@@ -83,10 +96,10 @@ class HomePage extends React.Component {
                         </div>
 
                         <div className="home-search">
-                            <span className="spanA">Find</span><input className="home-category" type="text" placeholder="tacos, cheap dinner, Max's"></input>
-                            <span className="spanB">Near</span><input type="text" placeholder="San Francisco"></input>
+                            <span className="spanA">Find</span><input onChange={(e) => this.update('category', e)} className="home-category" type="text" placeholder="tacos, cheap dinner, Max's"></input>
+                            <span className="spanB">Near</span><input onChange={(e) =>this.update('location', e)} type="text" placeholder="San Francisco"></input>
                             
-                            <img className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
+                            <img onClick={this.handleSearch} className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
                             
                         </div>
                         

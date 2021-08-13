@@ -21,7 +21,7 @@ class KelpMap extends React.Component {
        if(this.props.singleBusiness) {
         this.props.fetchBusiness(this.props.singleBusiness.id);
       } else {
-       this.registerListeners();
+       //this.registerListeners();
        this.MarkerManager.updateMarkers(this.props.businesses)
       }
 
@@ -52,12 +52,12 @@ class KelpMap extends React.Component {
     handleMarkerClick(business) {
       this.props.history.push(`business/${business.id}`);
     }
-    handleClick(coords) {
-      this.props.history.push({
-        pathname: 'business/new',
-        search: `lat=${coords.lat}&lng=${coords.lng}`
-      })
-    }
+    // handleClick(coords) {
+    //   this.props.history.push({
+    //     pathname: 'business/new',
+    //     search: `lat=${coords.lat}&lng=${coords.lng}`
+    //   })
+    // }
     render() {
       return (
         // ...

@@ -3,8 +3,7 @@ import BusinessHeader from "./business_header"
 import ReviewItem from '../review/review_item'
 import BusinessTimes from './business_times'
 import { Link } from 'react-router-dom';
-import ReviewForm from '../review/review_form';
-import {withRouter} from "react-router-dom"
+
 import KelpMap from "../map/kelp_map"
 class BusinessShow extends React.Component {
     constructor(props) {
@@ -34,6 +33,30 @@ class BusinessShow extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_4_half.png"
         } else if (rating === 5) {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
+        }
+    }
+    checkReviews() {
+        if(this.props.reviews.length > 0) {
+            return (
+                <div>
+                <h1 className="review-title">Recommended Reviews</h1>
+                    {this.props.reviews.map(review => (
+                        <ReviewItem
+                            body={review.body}
+                            img={this.getRatingsPicture(review.rating)}
+                            date={review.date}
+                            key={review.id}
+                            firstName={review.firstName}
+                            lastName={review.lastName}
+                        />
+                        
+                    ))}
+                </div>
+            )
+        } else {
+            return (
+                <div className="no-reviews">Be the First for a Review!</div>
+            )
         }
     }
     
@@ -97,23 +120,21 @@ class BusinessShow extends React.Component {
                             >Add Photo</Link> 
                             
                         </button>
-                        <BusinessTimes 
-                            hours={this.props.business.openHours}
-                        />
-                        
-                        <h1 className="review-title">Recommended Reviews</h1>
-                            {this.props.reviews.map(review => (
-                                <ReviewItem
-                                    body={review.body}
-                                    img={this.getRatingsPicture(review.rating)}
-                                    date={review.date}
-                                    key={review.id}
-                                    firstName={review.firstName}
-                                    lastName={review.lastName}
+                        <div className="location-title">Location and Hours</div>
+                        <div className="location-hours"> 
+                            <div className="location-map">
+                                Google map here with directions
+                            </div>
+                            <div className="location-time">
+                                <BusinessTimes 
+                                    hours={this.props.business.openHours}
                                 />
-                                
-                            ))}
-                     
+                            </div>
+                        </div>
+                        
+                        
+                        {this.checkReviews()}
+                                    
                    </div>
                     
                     <div className="business-bodyRight">

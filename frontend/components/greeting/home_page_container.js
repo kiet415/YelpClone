@@ -7,6 +7,7 @@ const mapStateToProps = ( state) => {
     return ({ 
         businesses: Object.values(state.entities.businesses),
         currentUser: state.session.id,
+        user: state.entities.users,
     })
 }
 

@@ -7,10 +7,14 @@ import BusinessHeader from "./business_header"
 class BusinessIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            category: '',
+            location: '',
+        }
     }   
 
     componentDidMount() {
-        this.props.fetchBusinesses();
+        //this.props.fetchBusinesses();
         //this.props.updateFilter();
     }
     getRatingsPicture = (rating) => {
@@ -36,16 +40,30 @@ class BusinessIndex extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
     }
-   
+    
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        
+        this.props.fetchBusinesses(obj);
+    }
     render() {
 
         // if(this.props.{variable} === undefined) return null;
-        if (Object.values(this.props.businesses).length === 0) return null;
+        //if (Object.values(this.props.businesses).length === 0) return null;
         return (
             <div>
 
             
-            <header><BusinessHeader/></header>
+            <header><BusinessHeader
+                        location={this.state.location}
+                        category={this.state.category}
+                        update={this.update}
+                        handleSearch={this.handleSearch}
+                    />
+            </header>
             <div className="index-div">
                 <div className="index-left">
 

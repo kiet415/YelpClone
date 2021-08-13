@@ -2,11 +2,36 @@ class Api::BusinessesController < ApplicationController
     before_action :require_logged_in, only: [:create, :update]
 
     def index 
-        @businesses = bounds ? Business.in_bounds(bounds).includes(:reviews) : Business.all.includes(:reviews)
-        #@businesses = Business.all
-        render "api/businesses/index"
-    end
+        #@businesses = bounds ? Business.in_bounds(bounds).includes(:reviews) : Business.all.includes(:reviews)
+        @businesses = Business.all
+        #default to san francisco as location if none
+        city = "San Francisco"
+        #category = "Chicken"
+        if params[:filters]
+            if params[:filters][:location]
+                city = params[:filters][:location]
+                
+                @businesses = Business
+                .where("city ILIKE ?", city)
+                
+                render "api/businesses/index"
+            # elsif params[:filters][:categories] && !params[:filters]
+            #     category = params[:filters][:category]
 
+            #     @businesses = Business
+            #     .where("categories ILIKE ?", category) 
+            #     if !@businesses 
+            #         @businesses = Business.all
+            #     end
+            #     render "api/businesses/index"
+            end
+        end
+        
+        
+        
+        
+    end
+    
     def show
         @business = Business.find(params[:id])
         render "api/businesses/show"
@@ -25,6 +50,6 @@ class Api::BusinessesController < ApplicationController
     end
     
     def business_params 
-        params.require(:business).permit(:lat, :lng, :price, :categories, photos: [])
+        params.require(:business).permit(:lat, :lng, photos: [])
     end
 end
