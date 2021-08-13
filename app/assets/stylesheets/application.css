@@ -13,8 +13,763 @@
  *= require_tree .
  *= require_self
  */
-
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 .session-form {
     display: flex;
     flex-direction: column;
+}
+.session-header {
+    background-color: #D32323;
+    margin: -10px;
+    height: 80px;
+    text-align: center;
+    font-size: 40px;
+}
+.session-input {
+    display: flex;
+    flex-direction: column;
+    
+}
+.session-formType {
+    color: red;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.session-dual-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+.session-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 20%;
+    width: 350px;
+}
+.session-box button{
+    width: 310px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-size: 16px;
+    
+}
+.session-pic {
+    margin-top: 200px;
+    width: 50%;
+    
+}
+.session-rest {
+    width: 300px;
+}
+.session-name  {
+    width: 143px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+.session-rest {
+    height: 30px;   
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#lastname {
+    margin-left: 6px;
+}
+
+.session-signUp h3 {
+    font-weight: bold;
+}
+.session-signUp a {
+    text-decoration: none;
+}
+.session-logIn h3 {
+    font-weight: bold;
+}
+.session-logIn a {
+    text-decoration: none;
+}
+.logged-in-header {
+    display: flex;
+
+}
+.logout-btn {
+    margin-left: 20px;
+    background-color: red;
+    color: white;
+} 
+.session-header img {
+    width: 80px;
+    height: 80px;
+}
+.session-description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+footer {
+    
+    display: flex;
+    flex-direction: row;
+    
+}
+footer li {
+    margin-bottom: 20px;
+    color: #757280;
+}
+
+footer ul {
+    margin-left: 20%;
+}
+.footer-header {
+    color: #2B273C;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.copyright {
+    margin-left: 20%;
+    margin-top: 50px;
+}
+.outerFooter {
+    background-color: #F4F4F4;
+    height: 600px;
+    margin-top: 30%;
+}
+
+.header input {
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+}
+.header-icon img {
+    width: 120px;
+    height: 80px; 
+    
+}
+.place-search {
+    margin-left: 20%;
+}
+.search {
+    width: 60px;
+    height: 46px;
+    margin-right: 5%;
+}
+.header {
+    display:flex;
+    flex-direction: row;
+    background-color: #F4F4F4;
+    padding: 20px;
+    align-items: center;
+    
+}
+.login-btn {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 30px;
+    
+}
+.signup-btn {
+    background-color: #f40d15;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.header a {
+    margin-right: 2%;
+}
+.header-icon {
+    width: 120px;
+    height: 80px;
+    
+}
+.business-info {
+    height: 570px;
+    width: 100%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+
+}
+.business-info1 {
+    width: 33%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info2 {
+    width: 34%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info3 {
+    width: 33%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info3 a {
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+.business-info3 button{
+    background: transparent;
+    padding: 10px 40px 10px 20px;
+    margin-top: 450px;
+    margin-left: 20px;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.business-name {
+    font-size: 54px;
+    padding-bottom: 20px;
+}
+
+.rating {
+    width: 180px;
+    height: 40px;
+}
+.business-rating {
+    padding-bottom: 20px;
+}
+.business-side-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border:  1px solid lightgray;
+    font-size: 24px;
+    width: 500px
+}
+.business-website {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    
+}
+.business-number {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.business-location {
+    padding: 10px;
+}
+.home-main {
+    background-image: url("https://kelp-icon.s3.us-west-1.amazonaws.com/yelpmainresize.jpg");
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%  ;
+    width: 100%;
+}
+.business-times li{
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.business-times p {
+    width: 100px;
+}
+
+.navLinks a{
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+}
+.navStart a:hover {
+    background-color: red;
+}
+.navStart {
+    display: flex;
+    width: 50%;
+}
+.navEnd {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-end;
+}
+.navLinks {
+    padding-top: 30px;
+    display: flex;
+}
+.home-container {
+    margin: auto;
+    width: 1000px;
+    height: 100%;
+}
+.asd {
+    background-color: red;
+}
+.home-signUp {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.home-icon {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    
+}
+.home-icon img {
+    width: 200px;
+    height: 200px;
+}
+
+.home-search img{
+    width: 60px;
+    height: 42px; 
+}
+.home-search img:hover {
+    cursor: pointer;
+}
+.home-search input {
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+    background-color: white;
+    border: none ;
+}
+.search:hover {
+    cursor: pointer;
+}
+.home-search span {
+    background-color: white;
+    height: 42px;
+    
+    color: #85837d;
+    font-size: 24px;
+    padding-right: 20px;
+}
+
+.home-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spanA {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.spanB {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-left: 1px solid lightgray;
+}
+
+.review-item-container img{
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.review-date {
+    font-size: 24px;
+}
+.review-title {
+    padding-top: 100px;
+    font-size: 40px;
+    padding-bottom: 50px;
+}
+.business-body {
+    display: flex;
+
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.review-item-top {
+    padding-bottom: 20px;
+}
+.review-item-body {
+    font-size: 24px;
+}
+.home-logOut {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px
+}
+.home-welcome {
+    font-size: 24px;
+    color: white;
+    padding-right: 20px;
+}
+.home-logOut:hover {
+    cursor: pointer;
+    background-color: red;
+}
+.home-signUp:hover {
+    background-color: red;
+}
+.home-logIn:hover {
+    background-color: red;
+}
+.business-side-info {
+    position: sticky;
+    top: 0;
+}
+.business-bodyLeft{
+    width: 50%;
+    padding-left: 10%;
+}
+
+
+.business-side-info img{
+    width: 30px;
+    height: 30px;
+}
+
+.business-website {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.business-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.business-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.business-st {
+    padding-bottom: 10px;
+}
+.hours {
+    padding-bottom: 10px;
+}
+.top-hours {
+    padding-bottom: 10px;
+}
+.business-desc{
+    
+    padding-left: 30%;
+    padding-top: 350px;
+    margin-left: 50px;
+}
+.no-reviews {
+    font-size: 42px;
+    margin-top: 50px;
+}
+.allPhotos-show button {
+    
+    font-size: 24px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid white;
+    padding: 10px 20px 10px 20px;
+}
+.allPhotos-show a {
+    background-color: transparent;
+    color: white;
+
+}
+.allPhotos-show {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+}
+.index-div {
+    display: flex;
+
+}
+.index-left {
+    width: 40%;
+    padding-left: 10%;
+}
+.index-right {
+    width: 20%;
+}
+
+.kelp-map {
+    position: sticky !important;
+    top:0 !important;
+    width: 95vh !important;
+    height: 100vh  !important;
+}
+.review-link {
+    background-color: red;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-right: 20px;
+    color: white;
+}
+.review-link a {
+    color: white;
+}
+
+
+.review-box {
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+
+
+.review-item-name {
+    font-size: 24px;
+    padding-top: 20px;
+
+    
+}
+.review-item-body {
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    
+}
+.location-hours {
+    display: flex;
+}
+.location-title {
+    font-size: 42px;
+    padding-bottom: 50px;
+}
+.index-img img {
+    width: 300px;
+    height: 300px;
+}
+.location-time {
+    margin-left: 500px;
+}
+.index-item {
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 40px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+.item-name {
+    font-size: 32px;
+    color: black;
+}
+.item-name:hover {
+    border-bottom: 3px solid black;
+    cursor: pointer;
+}
+.index-info {
+    padding: 20px;
+    font-size: 24px;
+}
+.index-info div {
+    padding-bottom: 10px;
+}
+.form-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.form-title div {
+    justify-content: flex-start;
+    font-size: 46px;
+    font-weight: bold;
+}
+.form-title a {
+    font-size: 24px;
+}
+.form-page {
+    padding-left: 20%;
+    width: 100vh;
+}
+.review-body {
+    width: 100%;
+    height: 500px;
+    white-space: pre-wrap;
+    position: relative;
+    font-size: 36px;
+    border:none;
+}
+.form-btn {
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding: 10px 30px 10px 30px;
+    border-radius: 3px;
+    
+}
+.index-review img {
+    width: 20px;
+    height: 20px;
+}
+.index-review {
+    color: gray;
+}
+.photos-page {
+    padding-top: 40px;
+    margin-left: 18%;
+}
+.photos-header {
+    font-size: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photos-box {
+    border: 1px lightgray dotted;
+    width: 1500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://s3-media0.fl.yelpcdn.com/assets/public/photo_review_325x200_v2.yji-9141622db285fa9c136a2ea8a879fbec.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.photos-box-inner {
+    display: flex;
+    flex-direction: column;
+    padding-top: 200px;
+}
+.photos-box-inner button {
+    margin-top: 40px;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    background-color: red;
+    font-size: 24px;
+    border-radius: 3px;
+}
+.photos-box input {
+    font-size: 24px;
+}
+.photos-page {
+    padding-left: 10%;
+    width: 1400px;
+}
+.preview img{
+    width: 300px;
+    height: 300px;
+    padding-left: 200px;
+}
+.photos-top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+.photos-title {
+    font-size: 42px;
+}
+
+.photos-review-link {
+    border: none;
+    color: white;
+    background-color: red;
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: 28px;
+}
+.photos-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: inherit;
+}
+.photos-div img {
+    padding-top: 50px;
+    width: 200px;
+    height: 200px;
+    padding-right: 20px;
+}
+
+.homePage-title {
+    font-size: 56px;
+    text-align: center;
+    padding-top: 20px;
+    color: red;
+    border-bottom: 1px solid lightgray;
+}
+
+.home-img {
+    width: 400px;
+    height: 400px;
+}
+.try-places {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.home-desc {
+    font-size: 24px;
+    padding-top: 10px;
+    
+}
+.home-itemName a{
+    padding-top: 20px;
+    font-size: 32px;
+    color: blue;
+}
+.home-items {
+    padding: 20px;
 }

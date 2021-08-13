@@ -32,5 +32,12 @@ npm-debug.log
 /config/master.key
 
 node_modules/
+<<<<<<< HEAD
 bundle.js*
 bundle.js.map
+=======
+bundle.js
+bundle.js.map
+# Ignore application configuration
+/config/application.yml
+>>>>>>> 3d895abe20cd6c999a868f666234a6db2f757cd4
