@@ -6,15 +6,19 @@ class Api::BusinessesController < ApplicationController
         @businesses = Business.all
         #default to san francisco as location if none
         city = "San Francisco"
-        #category = "Chicken"
+       
         if params[:filters]
             if params[:filters][:location]
                 city = params[:filters][:location]
-                
+        
                 @businesses = Business
-                .where("city ILIKE ?", city)
-                
+                            .where("city ILIKE ?", city)
+
                 render "api/businesses/index"
+
+
+
+                 #category = "Chicken"
             # elsif params[:filters][:categories] && !params[:filters]
             #     category = params[:filters][:category]
 
