@@ -67,13 +67,12 @@ class HomePage extends React.Component {
     handleSearch = () => {
         let obj = {category: this.state.category, location: this.state.location}
         this.props.history.push("/business")
-        //this.props.fetchBusinesses(obj);
+        this.props.fetchBusinesses(obj);
     }
 
     render() {
         if(this.props.businesses === undefined) return null;
         let idx = this.randomNumbers();
-        console.log(this.props)
         return (
             <div className="homePage">
 
