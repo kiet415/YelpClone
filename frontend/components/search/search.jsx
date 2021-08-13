@@ -18,14 +18,14 @@ class Search extends React.Component {
                     fetchBusinesses={this.props.fetchBusinesses}
                     fetchBusiness={this.props.fetchBusiness}
                     updateFilter={this.props.updateFilter}
-                    singleBusiness={true}
+                    singleBusiness={false}
                 />
-                <FilterForm
+                {/* <FilterForm
                     businesses={this.props.businesses}
                     price={this.props.price}
                     categories={this.props.categories}
                     updateFilter={this.props.updateFilter}
-                />
+                /> */}
                 
 
             </div>

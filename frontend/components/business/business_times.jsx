@@ -37,7 +37,6 @@ class BusinessTimes extends React.Component {
     }
     render() {
         let hash = this.readHours();
-        this.readHours();
         return (
             <ul className="business-times" >
                 <li key="mon"><p>Mon</p> <div className="hours">{this.isClosed(hash[0])}</div></li>

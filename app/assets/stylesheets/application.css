@@ -143,6 +143,15 @@ table {
 .session-logIn a {
     text-decoration: none;
 }
+.logged-in-header {
+    display: flex;
+
+}
+.logout-btn {
+    margin-left: 20px;
+    background-color: red;
+    color: white;
+} 
 .session-header img {
     width: 80px;
     height: 80px;
@@ -179,7 +188,7 @@ footer ul {
 .outerFooter {
     background-color: #F4F4F4;
     height: 600px;
-    margin-top: 20%;
+    margin-top: 30%;
 }
 
 .header input {
@@ -239,18 +248,52 @@ footer ul {
 }
 .business-info {
     height: 570px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%  ;
     width: 100%;
     color: white;
     font-size: 24px;
+    display: flex;
+
+}
+.business-info1 {
+    width: 33%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info2 {
+    width: 34%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info3 {
+    width: 33%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.business-info3 a {
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+.business-info3 button{
+    background: transparent;
+    padding: 10px 40px 10px 20px;
+    margin-top: 450px;
+    margin-left: 20px;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid white;
 }
 .business-name {
     font-size: 54px;
+    padding-bottom: 20px;
 }
+
 .rating {
     width: 180px;
     height: 40px;
+}
+.business-rating {
+    padding-bottom: 20px;
 }
 .business-side-info {
     display: flex;
@@ -274,7 +317,7 @@ footer ul {
 }
 .home-main {
     background-image: url("https://kelp-icon.s3.us-west-1.amazonaws.com/yelpmainresize.jpg");
-    height: 570px;
+    height: 700px;
     background-repeat: no-repeat;
     background-size: 100% 100%  ;
     width: 100%;
@@ -324,13 +367,13 @@ footer ul {
     border: 1px solid white;
     border-radius: 3px;
 }
-.home-img {
+.home-icon {
     padding-top: 30px;
     display: flex;
     justify-content: center;
     
 }
-.home-img img {
+.home-icon img {
     width: 200px;
     height: 200px;
 }
@@ -388,7 +431,9 @@ footer ul {
     font-size: 24px;
 }
 .review-title {
+    padding-top: 100px;
     font-size: 40px;
+    padding-bottom: 50px;
 }
 .business-body {
     display: flex;
@@ -466,8 +511,32 @@ footer ul {
     padding-bottom: 10px;
 }
 .business-desc{
-    margin: 10px;
-    padding-left: 10%;
+    
+    padding-left: 30%;
+    padding-top: 350px;
+    margin-left: 50px;
+}
+.no-reviews {
+    font-size: 42px;
+    margin-top: 50px;
+}
+.allPhotos-show button {
+    
+    font-size: 24px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid white;
+    padding: 10px 20px 10px 20px;
+}
+.allPhotos-show a {
+    background-color: transparent;
+    color: white;
+
+}
+.allPhotos-show {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
 }
 .index-div {
     display: flex;
@@ -492,10 +561,13 @@ footer ul {
     font-size: 24px;
     padding: 10px;
     margin-bottom: 50px;
+    margin-right: 20px;
+    color: white;
 }
 .review-link a {
     color: white;
 }
+
 
 .review-box {
     padding: 20px;
@@ -510,15 +582,24 @@ footer ul {
     
 }
 .review-item-body {
-    font-size: 16px;
+    font-size: 22px;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
     
 }
-
+.location-hours {
+    display: flex;
+}
+.location-title {
+    font-size: 42px;
+    padding-bottom: 50px;
+}
 .index-img img {
     width: 300px;
     height: 300px;
+}
+.location-time {
+    margin-left: 500px;
 }
 .index-item {
     display: flex;
@@ -584,4 +665,111 @@ footer ul {
 }
 .index-review {
     color: gray;
+}
+.photos-page {
+    padding-top: 40px;
+    margin-left: 18%;
+}
+.photos-header {
+    font-size: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photos-box {
+    border: 1px lightgray dotted;
+    width: 1500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://s3-media0.fl.yelpcdn.com/assets/public/photo_review_325x200_v2.yji-9141622db285fa9c136a2ea8a879fbec.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.photos-box-inner {
+    display: flex;
+    flex-direction: column;
+    padding-top: 200px;
+}
+.photos-box-inner button {
+    margin-top: 40px;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    background-color: red;
+    font-size: 24px;
+    border-radius: 3px;
+}
+.photos-box input {
+    font-size: 24px;
+}
+.photos-page {
+    padding-left: 10%;
+    width: 1400px;
+}
+.preview img{
+    width: 300px;
+    height: 300px;
+    padding-left: 200px;
+}
+.photos-top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+.photos-title {
+    font-size: 42px;
+}
+
+.photos-review-link {
+    border: none;
+    color: white;
+    background-color: red;
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: 28px;
+}
+.photos-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: inherit;
+}
+.photos-div img {
+    padding-top: 50px;
+    width: 200px;
+    height: 200px;
+    padding-right: 20px;
+}
+
+.homePage-title {
+    font-size: 56px;
+    text-align: center;
+    padding-top: 20px;
+    color: red;
+    border-bottom: 1px solid lightgray;
+}
+
+.home-img {
+    width: 400px;
+    height: 400px;
+}
+.try-places {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.home-desc {
+    font-size: 24px;
+    padding-top: 10px;
+    
+}
+.home-itemName a{
+    padding-top: 20px;
+    font-size: 32px;
+    color: blue;
+}
+.home-items {
+    padding: 20px;
 }

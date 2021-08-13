@@ -5,7 +5,9 @@ class Business < ApplicationRecord
 
     has_many :reviews
 
+    has_many_attached :photos
 
+    
     def self.in_bounds(bounds)
         self.where("lat < ?", bounds[:northEast][:lat])
             .where("lat > ?", bounds[:southWest][:lat])

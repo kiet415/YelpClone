@@ -7,10 +7,14 @@ import BusinessHeader from "./business_header"
 class BusinessIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            category: '',
+            location: '',
+        }
     }   
 
     componentDidMount() {
-        this.props.fetchBusinesses();
+        //this.props.fetchBusinesses();
         //this.props.updateFilter();
     }
     getRatingsPicture = (rating) => {
@@ -36,37 +40,57 @@ class BusinessIndex extends React.Component {
             return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
         }
     }
-   
+    
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        
+        this.props.fetchBusinesses(obj);
+    }
     render() {
 
         // if(this.props.{variable} === undefined) return null;
-        if (Object.values(this.props.businesses).length === 0) return null;
+        //if (Object.values(this.props.businesses).length === 0) return null;
         return (
             <div>
 
             
-            <header><BusinessHeader/></header>
+            <header><BusinessHeader
+                        location={this.state.location}
+                        category={this.state.category}
+                        update={this.update}
+                        handleSearch={this.handleSearch}
+                    />
+            </header>
             <div className="index-div">
                 <div className="index-left">
 
                     
                     {this.props.businesses.map(business => (
+                        
                         <div className="index-item"  key={business.id}>
                             <div className="index-img">
-                                <img src={business.photos}/>
-                         </div>
+                                <img src={business.pictures[0]}/>
+                            </div>
                             <div className="index-info">
-                            
-                            {/* <Link to={`/business/${business.id}`}> */}
-                                
                                 <BusinessIndexItem
                                     business={business}
                                     fetchBusiness={this.props.fetchBusiness}
                                 />
-                            {/* </Link> */}
                             <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
-                            <div>{business.categories} - {business.price} - {business.city} </div>
-                            <div> {business.review ?<div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
+                            <div> 
+                                {business.categories.map((cate, idx) => 
+                                
+                                (idx !== business.categories.length-1) ? 
+                                        <span> {cate} - </span> 
+                                        : 
+                                        <span> {cate} </span> 
+                                )}
+                            </div>  
+                            <div>{business.price} - {business.city} </div>
+                            <div> {business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
                             </div>
                         </div>
                     ))}
@@ -77,7 +101,7 @@ class BusinessIndex extends React.Component {
                     <KelpMap 
                         businesses={this.props.businesses}
                         updateFilter={this.props.updateFilter}
-                        singleBusiness={true}
+                        singleBusiness={false}
                         fetchBusiness={this.props.fetchBusiness}
                     />
                 </div>

@@ -13,9 +13,7 @@ export const receiveBusiness = ({ business, reviews }) => ({
   type: RECEIVE_BUSINESS,
   business,
   reviews,
-
 });
-
 
 export const fetchBusinesses = data => dispatch => (
   APIUtil.fetchBusinesses(data).then(businesses => (

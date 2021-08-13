@@ -1,10 +1,11 @@
-export const fetchBusinesses = filters => (
-    $.ajax({
-      method: 'GET',
-      url: 'api/businesses',
-      filters
-    })
-  );
+export const fetchBusinesses = filters => {
+    return (
+        $.ajax({
+        method: 'GET',
+        url: 'api/businesses',
+        data: {filters}
+        }))
+};
   
 export const fetchBusiness = id => (
     $.ajax({
@@ -36,11 +37,3 @@ export const updateReview = review => (
     })
 )
 
-
-
-
-
-
-
-
-  
