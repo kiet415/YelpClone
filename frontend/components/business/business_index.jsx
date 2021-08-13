@@ -55,7 +55,7 @@ class BusinessIndex extends React.Component {
                         <div className="index-item"  key={business.id}>
                             <div className="index-img">
                                 <img src={business.pictures[0]}/>
-                         </div>
+                            </div>
                             <div className="index-info">
                                 <BusinessIndexItem
                                     business={business}
@@ -83,7 +83,7 @@ class BusinessIndex extends React.Component {
                     <KelpMap 
                         businesses={this.props.businesses}
                         updateFilter={this.props.updateFilter}
-                        singleBusiness={true}
+                        singleBusiness={false}
                         fetchBusiness={this.props.fetchBusiness}
                     />
                 </div>

@@ -59,7 +59,7 @@ class PhotosForm extends React.Component {
                     </div>
 
                     <div className="photos-box">
-                        <form onSubmit={this.handleSubmit.bind(this)}>
+                        <form className="photos-box-inner" onSubmit={this.handleSubmit.bind(this)}>
                             <input
                                 type="file"
                                 onChange={this.handleFile.bind(this)}
@@ -68,7 +68,7 @@ class PhotosForm extends React.Component {
                             <button type="submit">Add a New Photo!</button>
                         </form>
                         
-                        {preview}
+                        <div className="preview">{preview}</div>
                     </div>
                 </div>
             </div>

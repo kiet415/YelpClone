@@ -5,6 +5,7 @@ import BusinessTimes from './business_times'
 import { Link } from 'react-router-dom';
 import ReviewForm from '../review/review_form';
 import {withRouter} from "react-router-dom"
+import KelpMap from "../map/kelp_map"
 class BusinessShow extends React.Component {
     constructor(props) {
         super(props);
@@ -49,38 +50,43 @@ class BusinessShow extends React.Component {
             backgroundImage: 'url(' + this.props.business.pictures[2] + ')',
         }
 
-        console.log(this.props.business);
         return (
             
             <div className="">
                 <BusinessHeader/>
-                <div className="business-info" style={photo}>
-                    <div className="business-desc">
-                        <h2 className="business-name">{this.props.business.name}</h2>
-                        <div>
-                            <img className="rating" src={rating}></img>
-                            {this.props.business.numRating} reviews
-                        </div>
-                        
-                        
-                        
-                        <div className="allPhotos-show">
-                            <div>
-                                {this.props.business.price}&nbsp;-&nbsp; 
-                                {this.props.business.categories}
+                <div className="business-info">
+                    <div className="business-info1" style={photo}>
+                        <div className="business-desc">
+                            <h2 className="business-name">{this.props.business.name}</h2>
+                            <div className="business-rating">
+                                <img className="rating" src={rating}></img>
+                                {this.props.business.numRating} reviews
                             </div>
                             
-                            
-                            <button><Link to={`/business/${this.props.business.id}/all-photos`}
-                                >See All Photos</Link> </button>    
-                        </div> 
+                            <div className="allPhotos-show">
+                                <div>
+                                    {this.props.business.price}&nbsp;-&nbsp; 
+                                    {this.props.business.categories.map((cate, idx) => 
+                                    
+                                    (idx !== this.props.business.categories.length-1) ? 
+                                            <span> {cate} - </span> 
+                                            : 
+                                            <span> {cate} </span> 
+                                    )}
+                                </div>    
+                            </div> 
+                        </div>
+                    </div>
+                    <div className="business-info2" style={photo1}></div>
+                    <div className="business-info3" style={photo2}>
+                        <button><Link to={`/business/${this.props.business.id}/all-photos`}
+                            >See All Photos</Link> </button> 
                     </div>
                     
                 </div>
                 <div className="business-body">
 
                    <div className="business-bodyLeft">
-                       
                         <button className="review-link">
         
                             <Link to={`/business/${this.props.business.id}/new-review`}
@@ -94,7 +100,7 @@ class BusinessShow extends React.Component {
                         <BusinessTimes 
                             hours={this.props.business.openHours}
                         />
-
+                        
                         <h1 className="review-title">Recommended Reviews</h1>
                             {this.props.reviews.map(review => (
                                 <ReviewItem

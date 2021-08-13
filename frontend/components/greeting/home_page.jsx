@@ -1,9 +1,13 @@
 import React from "react";
 import GreetingContainer from '../greeting/greeting_container'
 import { Link } from "react-router-dom";
+import BusinessIndexItem from "../business/business_index_item";
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+    }
+    componentDidMount() {
+        this.props.fetchBusinesses();
     }
     loggedIn = () => {
         return (
@@ -22,7 +26,41 @@ class HomePage extends React.Component {
             </div>
         )   
     }
+    randomNumbers = () => {
+        let res = [];
+        res.push(Math.floor(Math.random() * this.props.businesses.length))
+        res.push(Math.floor(Math.random() * this.props.businesses.length))
+        res.push(Math.floor(Math.random() * this.props.businesses.length))
+        console.log(res)
+        return res;
+    }
+    getRatingsPicture = (rating) => {
+        if(rating === 0) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_0.png";
+        } else if (rating === 1) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_1.png"
+        } else if (rating === 1.5) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_1_half.png"
+        } else if (rating === 2) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_2.png"
+        } else if (rating === 2.5) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_2_half.png"
+        } else if (rating === 3) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_3.png"
+        } else if (rating === 3.5) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_3_half.png"
+        } else if (rating === 4) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_4.png"
+        } else if (rating === 4.5) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_4_half.png"
+        } else if (rating === 5) {
+            return "https://kelp-icon.s3.us-west-1.amazonaws.com/large_5.png"
+        }
+    }
     render() {
+        if(this.props.businesses === undefined) return null;
+        let idx = this.randomNumbers();
+        console.log(this.props)
         return (
             <div className="homePage">
 
@@ -40,7 +78,7 @@ class HomePage extends React.Component {
                             
                         </header>
                         
-                        <div className="home-img">
+                        <div className="home-icon">
                             <Link to="/"><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/kelptransparent.png"></img></Link>
                         </div>
 
@@ -55,9 +93,45 @@ class HomePage extends React.Component {
 
                     </div>
 
-                   
-                    
-                    
+                    <div className="homePage-bottom">
+                        <div className="homePage-title">Find the Best Businesses in Town</div>
+                        <div className="try-places">
+                            {this.props.businesses.map((business,index) => 
+                                (idx.includes(index)) ? 
+                                <div className="home-items">
+                                    <img className="home-img" src={business.pictures[0]}/>
+                                    <div className="home-itemName">
+                                        <BusinessIndexItem
+                                            business={business}
+                                            fetchBusiness={this.props.fetchBusiness}
+                                            id={business.id}
+                                        /> 
+                                    </div>
+                                    <div> 
+                                        <div className="home-desc"><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
+                                        {business.categories.map((cate, idx) => 
+                                        
+                                        (idx !== business.categories.length-1) ? 
+                                                <span className="home-desc"> {cate} - </span> 
+                                                : 
+                                                <span className="home-desc"> {cate} </span> 
+                                        )}
+                                    </div>  
+                                    <div className="home-desc">{business.city} </div>
+                                    </div>
+                                : 
+                                null
+                            )}
+                        </div>
+                    </div>
+                   {/* {this.props.business.categories.map((cate, idx) => 
+                                    
+                    (idx !== this.props.business.categories.length-1) ? 
+                            <span> {cate} - </span> 
+                            : 
+                            <span> {cate} </span> 
+                    )} */}
+            
                 </div>
                 
             </div>
