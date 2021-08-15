@@ -5,7 +5,7 @@ const Header = (props) => (
     
     <header className="header">
         
-        <Link className="header-icon" to='/'><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/whiteyelpicon.jpg"></img></Link>
+        <Link className="header-icon" to='/'><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/kelptransparent.png"></img></Link>
     
         <input onChange={(e) => props.update('category', e)} value={props.category} className="place-search" type="text" placeholder="tacos, cheap dinner, Max's"></input>
         <input onChange={(e) => props.update('location', e)} value={props.location} type="text" placeholder="San Francisco"></input>
