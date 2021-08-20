@@ -15,7 +15,7 @@ class KelpMap extends React.Component {
       // set the map to show SF
       
       const map = this.refs.map;
-      // wrap this.mapNode in a Google Map
+      // wrap this.mapNode in a GoogleMap
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new MarkerManager(this.map);
        if(this.props.singleBusiness) {

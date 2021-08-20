@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 gem "aws-sdk-s3"
-gem "figaro"
 gem 'rack-cors'
 gem 'pry-rails'
 gem 'jquery-rails'
