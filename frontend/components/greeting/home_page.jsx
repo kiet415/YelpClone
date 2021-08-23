@@ -8,11 +8,19 @@ class HomePage extends React.Component {
         this.state = {
             category: '',
             location: '',
+            randomInts: [],
         }
+        
     }
 
     componentDidMount() {
-        this.props.fetchBusinesses();
+        
+        this.props.fetchBusinesses().then(() => (
+            this.setState({randomInts: this.randomNumbers()})
+        ))
+        
+        
+        
     }
     loggedIn = () => {
         return (
@@ -33,6 +41,7 @@ class HomePage extends React.Component {
     }
     randomNumbers = () => {
         let res = [];
+        console.log(this.props.businesses.length)
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
@@ -72,7 +81,7 @@ class HomePage extends React.Component {
 
     render() {
         if(this.props.businesses === undefined) return null;
-        let idx = this.randomNumbers();
+        console.log(this.state.randomInts)
         return (
             <div className="homePage">
 
@@ -96,7 +105,7 @@ class HomePage extends React.Component {
 
                         <div className="home-search">
                             <span className="spanA">Find</span><input onChange={(e) => this.update('category', e)} className="home-category" type="text" placeholder="tacos, cheap dinner, Max's"></input>
-                            <span className="spanB">Near</span><input onChange={(e) =>this.update('location', e)} type="text" placeholder="San Francisco"></input>
+                            <span className="spanB">Near</span><input onChange={(e) => this.update('location', e)} type="text" placeholder="San Francisco"></input>
                             
                             <img onClick={this.handleSearch} className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
                             
@@ -109,7 +118,7 @@ class HomePage extends React.Component {
                         <div className="homePage-title">Find the Best Businesses in Town</div>
                         <div className="try-places">
                             {this.props.businesses.map((business,index) => 
-                                (idx.includes(index)) ? 
+                                (this.state.randomInts.includes(index)) ? 
                                 <div className="home-items">
                                     <img className="home-img" src={business.pictures[0]}/>
                                     <div className="home-itemName">
