@@ -272,6 +272,18 @@ footer ul {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.business-map {
+    width: 600px;
+    height: 400px;
+}
+.location-hours-street {
+    font-size: 24px;
+    padding-top: 10px;
+}
+.location-hours-area {
+    font-size: 24px;
+    
+}
 .business-info3 a {
     border: none;
     color: white;
@@ -602,7 +614,7 @@ footer ul {
     height: 300px;
 }
 .location-time {
-    margin-left: 500px;
+    margin-left: 200px;
 }
 .index-item {
     display: flex;

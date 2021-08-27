@@ -3,7 +3,6 @@ import BusinessHeader from "./business_header"
 import ReviewItem from '../review/review_item'
 import BusinessTimes from './business_times'
 import { Link } from 'react-router-dom';
-
 import KelpMap from "../map/kelp_map"
 class BusinessShow extends React.Component {
     constructor(props) {
@@ -85,15 +84,14 @@ class BusinessShow extends React.Component {
         let photo2 = {
             backgroundImage: 'url(' + this.props.business.pictures[2] + ')',
         }
-
         return (
             
             <div className="">
                 <BusinessHeader
-                location={this.state.location}
-                category={this.state.category}
-                update={this.update}
-                handleSearch={this.handleSearch}
+                    location={this.state.location}
+                    category={this.state.category}
+                    update={this.update}
+                    handleSearch={this.handleSearch}
                 />
                 <div className="business-info">
                     <div className="business-info1" style={photo}>
@@ -110,9 +108,9 @@ class BusinessShow extends React.Component {
                                     {this.props.business.categories.map((cate, idx) => 
                                     
                                     (idx !== this.props.business.categories.length-1) ? 
-                                            <span> {cate} - </span> 
+                                            <span key={idx+"ba"}> {cate} - </span> 
                                             : 
-                                            <span> {cate} </span> 
+                                            <span key={idx+"bb"}> {cate} </span> 
                                     )}
                                 </div>    
                             </div> 
@@ -141,7 +139,15 @@ class BusinessShow extends React.Component {
                         <div className="location-title">Location and Hours</div>
                         <div className="location-hours"> 
                             <div className="location-map">
-                                Google map here with directions
+                                <KelpMap 
+                                    className={'business-map'}
+                                    business={this.props.business}
+                                    updateFilter={this.props.updateFilter}
+                                    singleBusiness={true}
+                                    fetchBusiness={this.props.fetchBusiness}
+                                />
+                                <div className="location-hours-street">{this.props.business.location}</div>
+                                <div className="location-hours-area">{this.props.business.city}, {this.props.business.zipCode}</div>
                             </div>
                             <div className="location-time">
                                 <BusinessTimes 

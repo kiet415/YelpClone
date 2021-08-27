@@ -1,7 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
 import BusinessIndexItem from './business_index_item.jsx'
-import { Link } from 'react-router-dom';
 import KelpMap from '../map/kelp_map.jsx';
 import BusinessHeader from "./business_header"
 class BusinessIndex extends React.Component {
@@ -49,19 +47,18 @@ class BusinessIndex extends React.Component {
         this.props.fetchBusinesses(obj);
     }
     render() {
-
-        // if(this.props.{variable} === undefined) return null;
-        //if (Object.values(this.props.businesses).length === 0) return null;
+        console.log(this.props.businesses)
         return (
             <div>
 
             
-            <header><BusinessHeader
-                        location={this.state.location}
-                        category={this.state.category}
-                        update={this.update}
-                        handleSearch={this.handleSearch}
-                    />
+            <header>
+                <BusinessHeader
+                    location={this.state.location}
+                    category={this.state.category}
+                    update={this.update}
+                    handleSearch={this.handleSearch}
+                />
             </header>
             <div className="index-div">
                 <div className="index-left">
@@ -98,6 +95,7 @@ class BusinessIndex extends React.Component {
                 </div>
                 <div className="index-right">
                     <KelpMap 
+                        className={'kelp-map'}
                         businesses={this.props.businesses}
                         updateFilter={this.props.updateFilter}
                         singleBusiness={false}

@@ -22,7 +22,7 @@ class MarkerManager {
         const marker = new google.maps.Marker({
             position,
             map: this.map,
-            businessId: business.id
+            businessId: business.id,
         });
         
         marker.addListener('click', () => this.handleClick(business));

@@ -9,28 +9,37 @@ const mapOptions = {
   zoom: 13,
 };
 class KelpMap extends React.Component {
-    //...
+    constructor(props) {
+      super(props);
+
+      this.state = {
+      }
+    }
   
     componentDidMount() {
       // set the map to show SF
       
       const map = this.refs.map;
       // wrap this.mapNode in a GoogleMap
-      this.map = new google.maps.Map(this.mapNode, mapOptions);
-      this.MarkerManager = new MarkerManager(this.map);
+      
+      
        if(this.props.singleBusiness) {
-        this.props.fetchBusiness(this.props.singleBusiness.id);
+        let mapOptions = {center: {lat: parseFloat(this.props.business.lat), lng: parseFloat(this.props.business.lng)}, zoom: 14}
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        this.MarkerManager = new MarkerManager(this.map);
+        this.props.fetchBusiness(this.props.business.id);
       } else {
        //this.registerListeners();
-       this.MarkerManager.updateMarkers(this.props.businesses)
+        let mapOptions = {center: {lat: parseFloat(this.props.businesses[0].lat), lng: parseFloat(this.props.businesses[0].lng)}, zoom: 12}
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        this.MarkerManager = new MarkerManager(this.map);
+        this.MarkerManager.updateMarkers(this.props.businesses)
       }
 
     }
     componentDidUpdate() {
       if (this.props.singleBusiness) {
-        const targetBusinessKey= Object.keys(this.props.singleBusiness)[0];
-        const targetBusiness = this.props.businesses[targetBusinessKey];
-        this.MarkerManager.updateMarkers([targetBusiness]);
+        this.MarkerManager.updateMarkers([this.props.business]);
       } else {
         this.MarkerManager.updateMarkers(this.props.businesses);
       }
@@ -59,9 +68,11 @@ class KelpMap extends React.Component {
     //   })
     // }
     render() {
+      
+
       return (
         // ...
-        <div className="kelp-map"  ref={ map => this.mapNode = map }> </div>
+        <div className={this.props.className} ref={ map => this.mapNode = map }> </div>
       )
     }
   

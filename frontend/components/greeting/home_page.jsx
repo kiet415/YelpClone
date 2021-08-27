@@ -41,7 +41,6 @@ class HomePage extends React.Component {
     }
     randomNumbers = () => {
         let res = [];
-        console.log(this.props.businesses.length)
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
         res.push(Math.floor(Math.random() * this.props.businesses.length))
@@ -75,13 +74,13 @@ class HomePage extends React.Component {
     }
     handleSearch = () => {
         let obj = {category: this.state.category, location: this.state.location}
-        this.props.history.push("/business")
-        this.props.fetchBusinesses(obj);
+        this.props.fetchBusinesses(obj).then(
+            this.props.history.push("/business")
+        )
     }
 
     render() {
         if(this.props.businesses === undefined) return null;
-        console.log(this.state.randomInts)
         return (
             <div className="homePage">
 
@@ -119,39 +118,34 @@ class HomePage extends React.Component {
                         <div className="try-places">
                             {this.props.businesses.map((business,index) => 
                                 (this.state.randomInts.includes(index)) ? 
-                                <div className="home-items">
-                                    <img className="home-img" src={business.pictures[0]}/>
-                                    <div className="home-itemName">
+                                <div className="home-items" key={index+"a"}>
+                                    <img className="home-img" src={business.pictures[0]} key={index+"B"}/>
+                                    <div className="home-itemName" key={index+"c"}>
                                         <BusinessIndexItem
                                             business={business}
                                             fetchBusiness={this.props.fetchBusiness}
                                             id={business.id}
+                                            key={index+"aa"}
                                         /> 
                                     </div>
-                                    <div> 
-                                        <div className="home-desc"><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
+                                    <div key={index+"g"}> 
+                                        <div className="home-desc" key={index+"d"}><img src={this.getRatingsPicture(business.rating)} key={index+"e"}/> {business.numRating}</div>
                                         {business.categories.map((cate, idx) => 
                                         
                                         (idx !== business.categories.length-1) ? 
-                                                <span className="home-desc"> {cate} - </span> 
+                                                <span className="home-desc" key={idx+"abc"}> {cate} - </span> 
                                                 : 
-                                                <span className="home-desc"> {cate} </span> 
+                                                <span className="home-desc" key={idx+"ac"}> {cate} </span> 
                                         )}
                                     </div>  
-                                    <div className="home-desc">{business.city} </div>
+                                    <div className="home-desc" key={index+"f"}>{business.city} </div>
                                     </div>
                                 : 
                                 null
                             )}
                         </div>
                     </div>
-                   {/* {this.props.business.categories.map((cate, idx) => 
-                                    
-                    (idx !== this.props.business.categories.length-1) ? 
-                            <span> {cate} - </span> 
-                            : 
-                            <span> {cate} </span> 
-                    )} */}
+                
             
                 </div>
                 
