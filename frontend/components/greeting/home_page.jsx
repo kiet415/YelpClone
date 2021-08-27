@@ -122,6 +122,7 @@ class HomePage extends React.Component {
                                     <img className="home-img" src={business.pictures[0]} key={index+"B"}/>
                                     <div className="home-itemName" key={index+"c"}>
                                         <BusinessIndexItem
+                                            index={index+1}
                                             business={business}
                                             fetchBusiness={this.props.fetchBusiness}
                                             id={business.id}
