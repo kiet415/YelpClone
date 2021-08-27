@@ -11,7 +11,7 @@ class BusinessIndexItem extends React.Component {
         return (
             <div>
                 <Link key={this.props.business.id} className="item-name" to={`/business/${this.props.business.id}`} >
-                    {this.props.business.name} 
+                    {this.props.index}. {this.props.business.name} 
                 
                 </Link>
             </div>

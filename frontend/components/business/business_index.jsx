@@ -77,29 +77,30 @@ class BusinessIndex extends React.Component {
                     <div className="index-left">
 
                         
-                        {this.props.businesses.map(business => (
+                        {this.props.businesses.map((business,idx) => (
                             
                             <div className="index-item"  key={business.id}>
-                                <div className="index-img">
+                                <div className="index-img" key={idx+"ea"}>
                                     <img src={business.pictures[0]}/>
                                 </div>
-                                <div className="index-info">
+                                <div className="index-info"  key={idx+"eb"}>
                                     <BusinessIndexItem
+                                        index={idx+1}
                                         business={business}
                                         fetchBusiness={this.props.fetchBusiness}
                                     />
-                                <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
+                                <div  key={idx+"ec"}><img  key={idx+"ed"} src={this.getRatingsPicture(business.rating)} alt="rating"/> {business.numRating}</div>
                                 <div> 
                                     {business.categories.map((cate, idx) => 
                                     
                                     (idx !== business.categories.length-1) ? 
-                                            <span> {cate} - </span> 
+                                            <span  key={idx+"ee"}> {cate} - </span> 
                                             : 
-                                            <span> {cate} </span> 
+                                            <span  key={idx+"ef"}> {cate} </span> 
                                     )}
                                 </div>  
-                                <div>{business.price} - {business.city} </div>
-                                <div> {business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
+                                <div key={idx+"eg"}>{business.price} - {business.city} </div>
+                                <div key={idx+"eh"}>{business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
                                 </div>
                             </div>
                         ))}
@@ -122,7 +123,6 @@ class BusinessIndex extends React.Component {
         }
     }
     render() {
-        console.log(this.props.businesses)
         return (
             <div>
                 {this.renderBusinesses()}
