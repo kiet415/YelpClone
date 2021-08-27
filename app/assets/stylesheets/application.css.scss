@@ -616,6 +616,16 @@ footer ul {
 .location-time {
     margin-left: 200px;
 }
+.business-error {
+    display: block;
+    width: 1000px;
+    height: 500px;
+    margin: auto;
+}
+.business-error-msg {
+    text-align: center;
+    font-size: 42px;
+}
 .index-item {
     display: flex;
     border: 1px solid lightgray;
@@ -663,7 +673,7 @@ footer ul {
     height: 500px;
     white-space: pre-wrap;
     position: relative;
-    font-size: 36px;
+    font-size: 32px;
     border:none;
 }
 .form-btn {

@@ -41,7 +41,10 @@ class KelpMap extends React.Component {
       if (this.props.singleBusiness) {
         this.MarkerManager.updateMarkers([this.props.business]);
       } else {
-        this.MarkerManager.updateMarkers(this.props.businesses);
+        let mapOptions = {center: {lat: parseFloat(this.props.businesses[0].lat), lng: parseFloat(this.props.businesses[0].lng)}, zoom: 12}
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        this.MarkerManager = new MarkerManager(this.map);
+        this.MarkerManager.updateMarkers(this.props.businesses)
       }
     }
     registerListeners() {

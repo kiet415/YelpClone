@@ -46,64 +46,86 @@ class BusinessIndex extends React.Component {
         
         this.props.fetchBusinesses(obj);
     }
+    renderBusinesses = (e) => {
+        if(this.props.businesses.length === 0) {
+            return (
+                
+                <div>
+                    <BusinessHeader
+                        location={this.state.location}
+                        category={this.state.category}
+                        update={this.update}
+                        handleSearch={this.handleSearch}
+                    />
+                    
+                    <img className="business-error" src="https://learn.getgrav.org/user/pages/11.troubleshooting/01.page-not-found/error-404.png"/>
+                    <div className="business-error-msg">Please search for something in location</div>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                <header>
+                    <BusinessHeader
+                        location={this.state.location}
+                        category={this.state.category}
+                        update={this.update}
+                        handleSearch={this.handleSearch}
+                    />
+                </header>
+                <div className="index-div">
+                    <div className="index-left">
+
+                        
+                        {this.props.businesses.map(business => (
+                            
+                            <div className="index-item"  key={business.id}>
+                                <div className="index-img">
+                                    <img src={business.pictures[0]}/>
+                                </div>
+                                <div className="index-info">
+                                    <BusinessIndexItem
+                                        business={business}
+                                        fetchBusiness={this.props.fetchBusiness}
+                                    />
+                                <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
+                                <div> 
+                                    {business.categories.map((cate, idx) => 
+                                    
+                                    (idx !== business.categories.length-1) ? 
+                                            <span> {cate} - </span> 
+                                            : 
+                                            <span> {cate} </span> 
+                                    )}
+                                </div>  
+                                <div>{business.price} - {business.city} </div>
+                                <div> {business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
+                                </div>
+                            </div>
+                        ))}
+                            
+                        
+                    </div>
+                    <div className="index-right">
+                        <KelpMap 
+                            className={'kelp-map'}
+                            businesses={this.props.businesses}
+                            updateFilter={this.props.updateFilter}
+                            singleBusiness={false}
+                            fetchBusiness={this.props.fetchBusiness}
+                        />
+                    </div>
+                    
+                </div>
+            </div>
+            )
+        }
+    }
     render() {
         console.log(this.props.businesses)
         return (
             <div>
-
-            
-            <header>
-                <BusinessHeader
-                    location={this.state.location}
-                    category={this.state.category}
-                    update={this.update}
-                    handleSearch={this.handleSearch}
-                />
-            </header>
-            <div className="index-div">
-                <div className="index-left">
-
-                    
-                    {this.props.businesses.map(business => (
-                        
-                        <div className="index-item"  key={business.id}>
-                            <div className="index-img">
-                                <img src={business.pictures[0]}/>
-                            </div>
-                            <div className="index-info">
-                                <BusinessIndexItem
-                                    business={business}
-                                    fetchBusiness={this.props.fetchBusiness}
-                                />
-                            <div><img src={this.getRatingsPicture(business.rating)}/> {business.numRating}</div>
-                            <div> 
-                                {business.categories.map((cate, idx) => 
-                                
-                                (idx !== business.categories.length-1) ? 
-                                        <span> {cate} - </span> 
-                                        : 
-                                        <span> {cate} </span> 
-                                )}
-                            </div>  
-                            <div>{business.price} - {business.city} </div>
-                            <div> {business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
-                            </div>
-                        </div>
-                    ))}
-                        
-                    
-                </div>
-                <div className="index-right">
-                    <KelpMap 
-                        className={'kelp-map'}
-                        businesses={this.props.businesses}
-                        updateFilter={this.props.updateFilter}
-                        singleBusiness={false}
-                        fetchBusiness={this.props.fetchBusiness}
-                    />
-                </div>
-                
-            </div>
+                {this.renderBusinesses()}
             </div>
         ) 
     }    
