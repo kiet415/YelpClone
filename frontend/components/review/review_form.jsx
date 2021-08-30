@@ -43,7 +43,7 @@ class ReviewForm extends React.Component {
     update(field) {
         return e =>this.setState({ [field]: e.currentTarget.value});
     }
-
+   
     // update = (field, e) => {
     //     this.setState({ [field]: e.currentTarget.value});
     // }
@@ -99,6 +99,7 @@ class ReviewForm extends React.Component {
                                 placeholder={placeholder}
                                 className="review-body"
                             /> 
+                            <button className="form-btn" onClick={this.navigateToBusinessShow}>Go Back</button>
 
                             <input className="form-btn" type="submit" value="Post Review"/>
                         </form>

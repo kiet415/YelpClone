@@ -61,10 +61,10 @@ class SessionForm extends React.Component {
                   {this.props.formType === 'Log In' ? 
                   <div className="session-logIn">
                     <h3>New to Yelp? <Link to='/signup'>Sign up</Link></h3>
-                    <div className='session-description'>By logging in, you agree to Yelp's
+                    {/* <div className='session-description'>By logging in, you agree to Yelp's
                       <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/"> Terms of Service </a> 
                       and acknowledge Yelp's <a href="https://terms.yelp.com/privacy/en_us/20200101_en_us/">Privary Policy.</a>
-                    </div>
+                    </div> */}
                     {this.renderErrors()}
                     <ul>
                       <input
@@ -91,10 +91,10 @@ class SessionForm extends React.Component {
                   :
                   <div className="session-signUp">
                     <h3>Connect with great local businesses</h3>
-                    <div className='session-description'>By continuing, you agree to Yelp's
+                    {/* <div className='session-description'>By continuing, you agree to Yelp's
                       <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/"> Terms of Service </a> 
                       and acknowledge Yelp's <a href="https://terms.yelp.com/privacy/en_us/20200101_en_us/">Privary Policy.</a>
-                    </div>
+                    </div> */}
                     {this.renderErrors()}
                       <ul>
                         <input
