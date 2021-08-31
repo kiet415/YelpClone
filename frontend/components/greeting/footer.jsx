@@ -3,7 +3,8 @@ import React from "react";
 const Footer = () => (
     <div className="outerFooter">
     <footer>
-        <ul> 
+        <img src="https://i.pinimg.com/originals/33/b7/89/33b789b1991e329373db3ebc51a4034a.png"/>
+        {/* <ul> 
             <li className="footer-header">About</li>
             <li><a href="https://www.yelp.com/about">About Yelp </a></li>
             <li><a href="https://www.yelp.com/careers/home">Careers </a></li>
@@ -39,10 +40,8 @@ const Footer = () => (
             <li><a href="https://www.yelp-support.com/Yelp_for_Business_Owners?l=en_US">Business Support</a></li>
             <li><a href="https://www.yelpblog.com/section/business">Yelp Blog for Business</a></li>
         </ul>
-        
+         */}
     </footer>
-    <div className='copyright'>Copyright © 2004–2021 Yelp Inc. Yelp, Yelp logo, Yelp burst 
-    and related marks are registered trademarks of Yelp. </div>
     </div>
 )
 

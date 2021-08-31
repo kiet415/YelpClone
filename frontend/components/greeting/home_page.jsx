@@ -78,7 +78,17 @@ class HomePage extends React.Component {
             this.props.history.push("/business")
         )
     }
-
+    goToGithub = (e) => {
+        e.preventDefault();
+        window.open('https://github.com/kiet415', "_blank")
+    }
+    goToLinkedIn = (e) => {
+        e.preventDefault();
+        window.open('https://www.linkedin.com/in/kietnguyen7/', "_blank")
+    }
+    redirectToBusiness = (id) => {
+        this.props.history.push(`/business/${id}`)
+    }
     render() {
         if(this.props.businesses === undefined) return null;
         return (
@@ -89,8 +99,8 @@ class HomePage extends React.Component {
                         <header >
                             <nav className="navLinks">
                                 <div className="navStart">
-                                    <a className="github" href="https://github.com/kiet415">Github</a>
-                                    <a className="linked-in"href="https://www.linkedin.com/in/kietnguyen7/">LinkedIn</a>
+                                    <img onClick={this.goToGithub} className="home-links" src="https://image.flaticon.com/icons/png/512/25/25231.png"/>
+                                    <img onClick={this.goToLinkedIn} className="home-links" src="https://image.flaticon.com/icons/png/512/174/174857.png"/>
                                 </div>
                                 
                                 {this.props.currentUser? this.loggedIn() : this.loggedOut()}
@@ -119,7 +129,7 @@ class HomePage extends React.Component {
                             {this.props.businesses.map((business,index) => 
                                 (this.state.randomInts.includes(index)) ? 
                                 <div className="home-items" key={index+"a"}>
-                                    <img className="home-img" src={business.pictures[0]} key={index+"B"}/>
+                                    <img onClick={() => this.redirectToBusiness(business.id)} className="home-img" src={business.pictures[0]} key={index+"B"}/>
                                     <div className="home-itemName" key={index+"c"}>
                                         <BusinessIndexItem
                                             index={index+1}

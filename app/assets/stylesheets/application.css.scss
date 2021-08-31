@@ -172,36 +172,24 @@ table {
     margin-bottom: 30px;
 }
 footer {
-    
-    display: flex;
-    flex-direction: row;
-    
-}
-footer li {
-    margin-bottom: 20px;
-    color: #757280;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
-footer ul {
-    margin-left: 20%;
-}
-.footer-header {
-    color: #2B273C;
-    margin-top: 50px;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
 .copyright {
     margin-left: 20%;
     margin-top: 50px;
 }
 .outerFooter {
     background-color: #F4F4F4;
-    height: 600px;
+    height: 300px;
     margin-top: 30%;
 }
-
+.home-img:hover {
+    cursor: pointer;
+}
 .header input {
     width: 400px;
     height: 40px;
@@ -384,7 +372,7 @@ footer ul {
 }
 .home-signUp {
     border: 1px solid white;
-    border-radius: 3px;
+    border-radius: 5px;
     
 }
 .home-icon {
@@ -461,6 +449,16 @@ footer ul {
     padding-top: 50px;
     padding-left: 50px;
 }
+.home-links {
+    width: 50px;
+    height: 50px;
+    margin-right: 10%;
+}
+.home-links:hover {
+    cursor: pointer;
+    padding-bottom: 5px;
+    border-bottom: 3px solid white;
+}
 .review-item-top {
     padding-bottom: 20px;
 }
@@ -476,6 +474,7 @@ footer ul {
     padding: 10px;
     width: 160px;
     height: 60px;
+    border-radius: 5px;
 }
 .home-welcome {
     font-size: 24px;
@@ -491,6 +490,9 @@ footer ul {
 }
 .home-logIn:hover {
     background-color: red;
+}
+.home-logIn {
+    border-radius: 5px;
 }
 .business-side-info {
     position: sticky;

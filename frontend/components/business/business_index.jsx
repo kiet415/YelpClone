@@ -2,6 +2,7 @@ import React from 'react';
 import BusinessIndexItem from './business_index_item.jsx'
 import KelpMap from '../map/kelp_map.jsx';
 import BusinessHeader from "./business_header"
+import { withRouter } from "react-router";
 class BusinessIndex extends React.Component {
     constructor(props) {
         super(props)
@@ -46,6 +47,9 @@ class BusinessIndex extends React.Component {
         
         this.props.fetchBusinesses(obj);
     }
+    redirectToBusiness = (id) => {
+        this.props.history.push(`/business/${id}`)
+    }
     renderBusinesses = (e) => {
         if(this.props.businesses.length === 0) {
             return (
@@ -81,7 +85,7 @@ class BusinessIndex extends React.Component {
                             
                             <div className="index-item"  key={business.id}>
                                 <div className="index-img" key={idx+"ea"}>
-                                    <img src={business.pictures[0]}/>
+                                    <img onClick={() => this.redirectToBusiness(business.id)} className="home-img" src={business.pictures[0]}/>
                                 </div>
                                 <div className="index-info"  key={idx+"eb"}>
                                     <BusinessIndexItem
@@ -132,4 +136,4 @@ class BusinessIndex extends React.Component {
 }
 
 
-export default BusinessIndex;
+export default withRouter(BusinessIndex);
