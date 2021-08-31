@@ -1,5 +1,6 @@
 import React from "react"
 import MarkerManager from "../../util/marker_manager";
+import { isEqual } from "lodash"
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
   lng: latLng.lng()
@@ -15,7 +16,13 @@ class KelpMap extends React.Component {
       this.state = {
       }
     }
-  
+    shouldComponentUpdate(nextProps) {
+      
+      if(!this.props.singleBusiness && (_.isEqual(this.props.businesses, nextProps.businesses))) {
+        return false;
+      }
+      return true;
+    }
     componentDidMount() {
       // set the map to show SF
       
