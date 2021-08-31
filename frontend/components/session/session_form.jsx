@@ -14,7 +14,12 @@ class SessionForm extends React.Component {
       };
       
     }
-  
+    componentDidMount() {
+      this.props.clearSessionErrors();
+    }
+    componentWillUnmount() {
+      this.props.clearSessionErrors();
+    }
     handleSubmit = (e) =>  {
         e.preventDefault();
         const user = Object.assign({}, this.state);
@@ -27,6 +32,7 @@ class SessionForm extends React.Component {
       });
     }
     renderErrors() {
+      
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -36,6 +42,7 @@ class SessionForm extends React.Component {
           ))}
         </ul>
       );
+       
     }
     demoLogIn = (e) => {
       e.preventDefault();
