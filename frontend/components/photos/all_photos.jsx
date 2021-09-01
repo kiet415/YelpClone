@@ -17,7 +17,9 @@ class AllPhotos extends React.Component {
             this.props.history.push(`/business/${businessId}/new-photo`)
         }
     }
-    
+    goToPhoto = (link) => {
+        window.open(link, "_blank")
+    }
     render() {
         console.log(this.props.business)
         if(this.props.business === undefined) return null;
@@ -36,10 +38,10 @@ class AllPhotos extends React.Component {
                     </div>
                     <div className="photos-div">
                         {this.props.business.pictures.map((photo,index) => (
-                            <img key={index} src={photo}></img>
+                            <img className="busi-all-photos" onClick={() => this.goToPhoto(photo)} key={index} src={photo}></img>
                         ))}
                         {this.props.business.photoUrls.map((photo,index) => (
-                            <img key={index} src={photo}></img>
+                            <img className="busi-all-photos" onClick={() => this.goToPhoto(photo)} key={index} src={photo}></img>
                         ))}
                     </div>
                     
