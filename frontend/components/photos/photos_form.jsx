@@ -7,7 +7,18 @@ class PhotosForm extends React.Component {
         this.state = {
             photoFile: null,
             photoUrl: null,
+            category: "",
+            location: "",
         }
+    }
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        this.props.fetchBusinesses(obj).then(
+            this.props.history.push("/business")
+        )
     }
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.business_id)
@@ -59,7 +70,12 @@ class PhotosForm extends React.Component {
         if(this.props.business === undefined) return null;
         return (
             <div >
-                <BusinessHeader/>
+                <BusinessHeader
+                    location={this.state.location}
+                    category={this.state.category}
+                    update={this.update}
+                    handleSearch={this.handleSearch}
+                />
                 <div className="photos-page">
                     <div className="photos-header">
                         <div>{this.props.business.name}</div>

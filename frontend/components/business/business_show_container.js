@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BusinessShow from './business_show';
-import { fetchBusiness } from '../../actions/business_actions';
+import { fetchBusiness, fetchBusinesses } from '../../actions/business_actions';
 import { updateFilter } from '../../actions/filter_actions';
 const mapStateToProps = (state, ownProps) => {
     return ({

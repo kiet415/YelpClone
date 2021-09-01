@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchBusinesses } from '../../actions/business_actions';
+import { fetchBusinesses, fetchBusiness } from '../../actions/business_actions';
 import { logout } from '../../actions/session_actions';
 import HomePage from './home_page'
 

@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 class AllPhotos extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            category: '',
+            location: '',
+        }
     }
     componentDidMount() {
         this.props.fetchBusiness()
@@ -20,12 +23,26 @@ class AllPhotos extends React.Component {
     goToPhoto = (link) => {
         window.open(link, "_blank")
     }
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        let obj = {category: this.state.category, location: this.state.location}
+        this.props.fetchBusinesses(obj).then(
+            this.props.history.push("/business")
+        )
+    }
     render() {
         console.log(this.props.business)
         if(this.props.business === undefined) return null;
         return (
             <div >
-                <BusinessHeader/>
+                <BusinessHeader
+                    location={this.state.location}
+                    category={this.state.category}
+                    update={this.update}
+                    handleSearch={this.handleSearch}
+                />
                 <div className="photos-page">
                     <div className="photos-top">
                     <div className="photos-title">Photos for {this.props.business.name}</div>
