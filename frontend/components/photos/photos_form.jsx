@@ -27,23 +27,28 @@ class PhotosForm extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        if (this.state.photoFile) {
-          formData.append('business[photos]', this.state.photoFile);
-          formData.append('business[url]' , this.state.photoUrl);
+        if(!this.props.user) {
+            alert("Please log in!")
+        } else {
+            const formData = new FormData();
+            if (this.state.photoFile) {
+                formData.append('business[photos]', this.state.photoFile);
+                formData.append('business[url]' , this.state.photoUrl);
+            }
+            $.ajax({
+            url: `/api/businesses/${this.props.business.id}`,
+            method: 'PATCH',
+            data: formData,
+            contentType: false,
+            processData: false
+            }).then(response => {
+                
+                this.props.history.push(`/business/${this.props.business.id}/all-photos`)
+
+
+            })
         }
-        $.ajax({
-          url: `/api/businesses/${this.props.business.id}`,
-          method: 'PATCH',
-          data: formData,
-          contentType: false,
-          processData: false
-        }).then(response => {
-            setTimeout(() => {this.props.history.push(`/business/${this.props.business.id}/all-photos`)}, 10000)
-            
-
-        })
-
+        
     }
 
     navigateToBusinessShow = () => {

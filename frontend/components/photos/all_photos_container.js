@@ -11,7 +11,7 @@ const mapStateToProps = (state , ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    fetchBusiness: id => dispatch(fetchBusiness(id))
+    fetchBusiness: () => dispatch(fetchBusiness(ownProps.match.params.id))
 });
   
 

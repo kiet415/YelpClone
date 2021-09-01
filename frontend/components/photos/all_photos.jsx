@@ -7,7 +7,7 @@ class AllPhotos extends React.Component {
 
     }
     componentDidMount() {
-        //this.props.fetchBusiness(this.props.match.params.business_id)
+        this.props.fetchBusiness()
     }
     
     addPhoto = (businessId) => {

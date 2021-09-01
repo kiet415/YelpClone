@@ -23,7 +23,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption,  header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -36,7 +36,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+ header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
@@ -754,13 +754,13 @@ footer {
     font-size: 24px;
 }
 .photos-page {
-    padding-left: 10%;
+    padding-left: 5%;
     width: 1400px;
 }
 .preview img{
     width: 500px;
     height: 500px;
-    margin-left: 48%;
+    margin-left: 42%;
 }
 .photos-top {
     display: flex;
@@ -792,11 +792,14 @@ footer {
     height: 200px;
     padding-right: 20px;
 }
-
+.homePage {
+    height: 1000px;
+}
 .homePage-title {
     font-size: 56px;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 20px;
     color: red;
     border-bottom: 1px solid lightgray;
 }
@@ -806,6 +809,7 @@ footer {
     height: 400px;
 }
 .try-places {
+    padding-top: 20px;
     width: inherit;
     display: flex;
     flex-direction: row;
