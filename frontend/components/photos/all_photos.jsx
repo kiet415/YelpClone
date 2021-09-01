@@ -19,6 +19,7 @@ class AllPhotos extends React.Component {
     }
     
     render() {
+        console.log(this.props.business)
         if(this.props.business === undefined) return null;
         return (
             <div >
@@ -34,8 +35,11 @@ class AllPhotos extends React.Component {
                         
                     </div>
                     <div className="photos-div">
-                        {this.props.business.photoUrls.map(photo => (
-                            <img src={photo}></img>
+                        {this.props.business.pictures.map((photo,index) => (
+                            <img key={index} src={photo}></img>
+                        ))}
+                        {this.props.business.photoUrls.map((photo,index) => (
+                            <img key={index} src={photo}></img>
                         ))}
                     </div>
                     

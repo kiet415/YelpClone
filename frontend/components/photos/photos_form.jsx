@@ -39,13 +39,16 @@ class PhotosForm extends React.Component {
           contentType: false,
           processData: false
         }).then(response => {
-            debugger
+            setTimeout(() => {this.props.history.push(`/business/${this.props.business.id}/all-photos`)}, 10000)
+            
+
         })
 
-        this.props.history.push(`/business/${this.props.business.id}`)
     }
 
-    
+    navigateToBusinessShow = () => {
+        this.props.history.push(`/business/${this.props.match.params.id}`)
+    }
     render() {
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
         if(this.props.business === undefined) return null;
@@ -63,14 +66,16 @@ class PhotosForm extends React.Component {
                             <input
                                 type="file"
                                 onChange={this.handleFile.bind(this)}
-                                
+                                className="chooseFile"
                             />
                             <button type="submit">Add a New Photo!</button>
+                            <button onClick={this.navigateToBusinessShow}>Go Back</button>
                         </form>
                         
-                        <div className="preview">{preview}</div>
                     </div>
                 </div>
+                <div className="preview">{preview}</div>
+
             </div>
         )
     }

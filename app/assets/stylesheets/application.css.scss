@@ -158,6 +158,10 @@ table {
     display: flex;
 
 }
+.logged-out-header {
+    display: flex;
+    
+}
 .logout-btn {
     margin-left: 20px;
     background-color: red;
@@ -730,12 +734,16 @@ footer {
     padding-top: 200px;
 }
 .photos-box-inner button {
-    margin-top: 40px;
+    
     padding: 10px 20px 10px 20px;
     color: white;
     background-color: red;
     font-size: 24px;
     border-radius: 3px;
+    
+}
+.chooseFile {
+    padding-bottom: 50px;
 }
 .photos-box input {
     font-size: 24px;
@@ -745,9 +753,9 @@ footer {
     width: 1400px;
 }
 .preview img{
-    width: 300px;
-    height: 300px;
-    padding-left: 200px;
+    width: 500px;
+    height: 500px;
+    margin-left: 48%;
 }
 .photos-top {
     display: flex;
