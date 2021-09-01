@@ -9,6 +9,7 @@ class HomePage extends React.Component {
             category: '',
             location: '',
             randomInts: [],
+            loading: true,
         }
         
     }
@@ -16,7 +17,8 @@ class HomePage extends React.Component {
     componentDidMount() {
         
         this.props.fetchBusinesses().then(() => (
-            this.setState({randomInts: this.randomNumbers()})
+            this.setState({randomInts: this.randomNumbers()}),
+            this.setState({loading: false})
         ))
         
         
@@ -89,6 +91,47 @@ class HomePage extends React.Component {
     redirectToBusiness = (id) => {
         this.props.history.push(`/business/${id}`)
     }
+    loading = () => {
+        if(this.state.loading) {
+            return (
+                <div className="home-loading">Loading new businesses</div>
+            )
+        } else {
+            return (
+
+                <div className="try-places">
+                {this.props.businesses.map((business,index) => 
+                    (this.state.randomInts.includes(index)) ? 
+                    <div className="home-items" key={index+"a"}>
+                        <img onClick={() => this.redirectToBusiness(business.id)} className="home-img" src={business.pictures[0]} key={index+"B"}/>
+                        <div className="home-itemName" key={index+"c"}>
+                            <BusinessIndexItem
+                                index={index+1}
+                                business={business}
+                                fetchBusiness={this.props.fetchBusiness}
+                                id={business.id}
+                                key={index+"aa"}
+                            /> 
+                        </div>
+                        <div key={index+"g"}> 
+                            <div className="home-desc" key={index+"d"}><img src={this.getRatingsPicture(business.rating)} key={index+"e"}/> {business.numRating}</div>
+                            {business.categories.map((cate, idx) => 
+                            
+                            (idx !== business.categories.length-1) ? 
+                                    <span className="home-desc" key={idx+"abc"}> {cate} - </span> 
+                                    : 
+                                    <span className="home-desc" key={idx+"ac"}> {cate} </span> 
+                            )}
+                        </div>  
+                        <div className="home-desc" key={index+"f"}>{business.city} </div>
+                        </div>
+                    : 
+                    null
+                )}
+                </div>
+            )
+        }
+    }
     render() {
         if(this.props.businesses === undefined) return null;
         return (
@@ -125,36 +168,9 @@ class HomePage extends React.Component {
 
                     <div className="homePage-bottom">
                         <div className="homePage-title">Find the Best Businesses in Town</div>
-                        <div className="try-places">
-                            {this.props.businesses.map((business,index) => 
-                                (this.state.randomInts.includes(index)) ? 
-                                <div className="home-items" key={index+"a"}>
-                                    <img onClick={() => this.redirectToBusiness(business.id)} className="home-img" src={business.pictures[0]} key={index+"B"}/>
-                                    <div className="home-itemName" key={index+"c"}>
-                                        <BusinessIndexItem
-                                            index={index+1}
-                                            business={business}
-                                            fetchBusiness={this.props.fetchBusiness}
-                                            id={business.id}
-                                            key={index+"aa"}
-                                        /> 
-                                    </div>
-                                    <div key={index+"g"}> 
-                                        <div className="home-desc" key={index+"d"}><img src={this.getRatingsPicture(business.rating)} key={index+"e"}/> {business.numRating}</div>
-                                        {business.categories.map((cate, idx) => 
-                                        
-                                        (idx !== business.categories.length-1) ? 
-                                                <span className="home-desc" key={idx+"abc"}> {cate} - </span> 
-                                                : 
-                                                <span className="home-desc" key={idx+"ac"}> {cate} </span> 
-                                        )}
-                                    </div>  
-                                    <div className="home-desc" key={index+"f"}>{business.city} </div>
-                                    </div>
-                                : 
-                                null
-                            )}
-                        </div>
+                        
+                        {this.loading()}
+                        
                     </div>
                 
             
