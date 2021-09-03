@@ -34,7 +34,7 @@ class KelpMap extends React.Component {
        if(this.props.singleBusiness) {
         let mapOptions = {center: {lat: parseFloat(this.props.business.lat), lng: parseFloat(this.props.business.lng)}, zoom: 14}
         this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        this.MarkerManager = new MarkerManager(this.map);
         this.props.fetchBusiness(this.props.business.id);
       } else {
         
