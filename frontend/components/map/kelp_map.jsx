@@ -1,6 +1,7 @@
 import React from "react"
 import MarkerManager from "../../util/marker_manager";
 import { isEqual } from "lodash"
+import { withRouter } from "react-router";
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
   lng: latLng.lng()
@@ -33,14 +34,15 @@ class KelpMap extends React.Component {
        if(this.props.singleBusiness) {
         let mapOptions = {center: {lat: parseFloat(this.props.business.lat), lng: parseFloat(this.props.business.lng)}, zoom: 14}
         this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager = new MarkerManager(this.map);
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
         this.props.fetchBusiness(this.props.business.id);
       } else {
-      // this.registerListeners();
+        
         let mapOptions = {center: {lat: parseFloat(this.props.businesses[0].lat), lng: parseFloat(this.props.businesses[0].lng)}, zoom: 12}
         this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager = new MarkerManager(this.map);
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
         this.MarkerManager.updateMarkers(this.props.businesses)
+        //this.registerListeners();
       }
 
     }
@@ -55,28 +57,28 @@ class KelpMap extends React.Component {
       }
     }
     registerListeners() {
-      google.maps.event.addListener(this.map , 'idle', () => {
-        const {north, south, east, west} = this.map.getBounds().toJSON();
-        const bounds = {
-          northEast: {lat: north, lng: east},
-          southWest: {lat: south, lng: west} };
-        this.props.updateFilter('bounds', bounds);
-      })
+      // google.maps.event.addListener(this.map , 'idle', () => {
+      //   const {north, south, east, west} = this.map.getBounds().toJSON();
+      //   const bounds = {
+      //     northEast: {lat: north, lng: east},
+      //     southWest: {lat: south, lng: west} };
+      //   this.props.updateFilter('bounds', bounds);
+      // })
       google.maps.event.addListener(this.map, 'click', (event) => {
-        debugger
         const coords = getCoordsObj(event.latLng);
+        
         this.handleClick(coords);
       })
     }
     handleMarkerClick(business) {
       this.props.history.push(`business/${business.id}`);
     }
-    // handleClick(coords) {
-    //   this.props.history.push({
-    //     pathname: 'business/new',
-    //     search: `lat=${coords.lat}&lng=${coords.lng}`
-    //   })
-    // }
+    handleClick(coords) {
+      this.props.history.push({
+        pathname: '/business',
+        search: `lat=${coords.lat}&lng=${coords.lng}`
+      })
+    }
     render() {
       
 
@@ -89,4 +91,4 @@ class KelpMap extends React.Component {
     //...
   }
 
-  export default KelpMap
+  export default withRouter(KelpMap);
