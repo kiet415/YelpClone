@@ -34,7 +34,7 @@ class KelpMap extends React.Component {
        if(this.props.singleBusiness) {
         let mapOptions = {center: {lat: parseFloat(this.props.business.lat), lng: parseFloat(this.props.business.lng)}, zoom: 14}
         this.map = new google.maps.Map(this.mapNode, mapOptions);
-        this.MarkerManager = new MarkerManager(this.map);
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
         this.props.fetchBusiness(this.props.business.id);
       } else {
         
@@ -57,13 +57,13 @@ class KelpMap extends React.Component {
       }
     }
     registerListeners() {
-      // google.maps.event.addListener(this.map , 'idle', () => {
-      //   const {north, south, east, west} = this.map.getBounds().toJSON();
-      //   const bounds = {
-      //     northEast: {lat: north, lng: east},
-      //     southWest: {lat: south, lng: west} };
-      //   this.props.updateFilter('bounds', bounds);
-      // })
+      google.maps.event.addListener(this.map , 'idle', () => {
+        const {north, south, east, west} = this.map.getBounds().toJSON();
+        const bounds = {
+          northEast: {lat: north, lng: east},
+          southWest: {lat: south, lng: west} };
+        this.props.updateFilter('bounds', bounds);
+      })
       google.maps.event.addListener(this.map, 'click', (event) => {
         const coords = getCoordsObj(event.latLng);
         
@@ -71,7 +71,10 @@ class KelpMap extends React.Component {
       })
     }
     handleMarkerClick(business) {
-      this.props.history.push(`business/${business.id}`);
+      if(!this.props.singleBusiness) {
+        this.props.history.push(`business/${business.id}`);
+      }
+      
     }
     handleClick(coords) {
       this.props.history.push({
