@@ -21,8 +21,17 @@ class Header extends React.Component {
             
                 <Link className="header-icon" to='/'><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/kelptransparent.png"></img></Link>
             
-                <input onChange={(e) => this.props.update('category', e)} value={this.props.category} className="place-search" type="text" placeholder="tacos, cheap dinner, Max's"></input>
-                <input onChange={(e) => this.props.update('location', e)} value={this.props.location} type="text" placeholder="San Francisco"></input>
+                <input onChange={(e) => this.props.update('location', e)} value={this.props.location} className="place-search" list="locations" placeholder="San Francisco"></input>
+                <datalist id="locations">
+                    <option value="San Francisco"/>
+                    <option value="Oakland"/>
+                    <option value="San Mateo"/>
+                    <option value="San Leandro"/>
+                    <option value="Richmond"/>
+                    <option value="Fremont"/>
+                    <option value="San Jose"/>
+                    <option value="Santa Cruz"/>
+                </datalist>
                 <img onClick={() => this.props.handleSearch()}className="search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
                 
                 <img onClick={this.goToGithub} className="home-links" src="https://image.flaticon.com/icons/png/512/25/25231.png"/>

@@ -156,8 +156,18 @@ class HomePage extends React.Component {
                         </div>
 
                         <div className="home-search">
-                            <span className="spanA">Find</span><input onChange={(e) => this.update('category', e)} className="home-category" type="text" placeholder="tacos, cheap dinner, Max's"></input>
-                            <span className="spanB">Near</span><input onChange={(e) => this.update('location', e)} type="text" placeholder="San Francisco"></input>
+                            {/* <span className="spanA">Find</span><input onChange={(e) => this.update('category', e)} className="home-category" type="text" placeholder="tacos, cheap dinner, Max's" /> */}
+                            <span className="spanB">Near</span><input onChange={(e) => this.update('location', e)} list="locations" placeholder="San Francisco" ></input>
+                            <datalist id="locations">
+                                <option value="San Francisco"/>
+                                <option value="Oakland"/>
+                                <option value="San Mateo"/>
+                                <option value="San Leandro"/>
+                                <option value="Richmond"/>
+                                <option value="Fremont"/>
+                                <option value="San Jose"/>
+                                <option value="Santa Cruz"/>
+                            </datalist>
                             
                             <img onClick={this.handleSearch} className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
                             

@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
                     <ul>
                       <input
                           className="session-rest"
-                          type="text"
+                          type="email"
                           value={this.props.email}
                           placeholder="Email"
                           onChange={this.update('email')}

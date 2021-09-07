@@ -14,25 +14,11 @@ class Api::BusinessesController < ApplicationController
                 @businesses = Business
                             .where("city ILIKE ?", city)
 
-                render "api/businesses/index"
-
-
-
-                 #category = "Chicken"
-            # elsif params[:filters][:categories] && !params[:filters]
-            #     category = params[:filters][:category]
-
-            #     @businesses = Business
-            #     .where("categories ILIKE ?", category) 
-            #     if !@businesses 
-            #         @businesses = Business.all
-            #     end
-            #     render "api/businesses/index"
             end
         end
         
         
-        
+        render "api/businesses/index"
         
     end
     
