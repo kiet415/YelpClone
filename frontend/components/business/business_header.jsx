@@ -15,12 +15,16 @@ class Header extends React.Component {
         e.preventDefault();
         window.open('https://www.linkedin.com/in/kietnguyen7/', "_blank")
     }
+    goToPersonal = (e) => {
+        e.preventDefault();
+        window.open('https://kiet-nguyen.netlify.app/', "_blank")
+    }
     render() {
         return (
             <header className="header">
             
                 <Link className="header-icon" to='/'><img src="https://kelp-icon.s3.us-west-1.amazonaws.com/kelptransparent.png"></img></Link>
-            
+
                 <input onChange={(e) => this.props.update('location', e)} value={this.props.location} className="place-search" list="locations" placeholder="San Francisco"></input>
                 <datalist id="locations">
                     <option value="San Francisco"/>
@@ -36,7 +40,7 @@ class Header extends React.Component {
                 
                 <img onClick={this.goToGithub} className="home-links" src="https://image.flaticon.com/icons/png/512/25/25231.png"/>
                 <img onClick={this.goToLinkedIn} className="home-links" src="https://image.flaticon.com/icons/png/512/174/174857.png"/>
-
+                <img onClick={this.goToPersonal} className="home-links1" src="https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-512.png"/>
                 <GreetingContainer/>
             </header>
         )

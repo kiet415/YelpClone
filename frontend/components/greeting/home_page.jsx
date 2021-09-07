@@ -88,6 +88,10 @@ class HomePage extends React.Component {
         e.preventDefault();
         window.open('https://www.linkedin.com/in/kietnguyen7/', "_blank")
     }
+    goToPersonal = (e) => {
+        e.preventDefault();
+        window.open('https://kiet-nguyen.netlify.app/', "_blank")
+    }
     redirectToBusiness = (id) => {
         this.props.history.push(`/business/${id}`)
     }
@@ -144,6 +148,7 @@ class HomePage extends React.Component {
                                 <div className="navStart">
                                     <img onClick={this.goToGithub} className="home-links" src="https://image.flaticon.com/icons/png/512/25/25231.png"/>
                                     <img onClick={this.goToLinkedIn} className="home-links" src="https://image.flaticon.com/icons/png/512/174/174857.png"/>
+                                    <img onClick={this.goToPersonal} className="home-links" src="https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-512.png"/>
                                 </div>
                                 
                                 {this.props.currentUser? this.loggedIn() : this.loggedOut()}

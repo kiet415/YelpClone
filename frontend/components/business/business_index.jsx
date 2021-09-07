@@ -50,6 +50,7 @@ class BusinessIndex extends React.Component {
     redirectToBusiness = (id) => {
         this.props.history.push(`/business/${id}`)
     }
+    
     renderBusinesses = (e) => {
         if(this.props.businesses.length === 0) {
             return (
