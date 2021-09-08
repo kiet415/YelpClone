@@ -1,5 +1,6 @@
 import React from "react";
 import BusinessHeader from "../business/business_header"
+import { withRouter } from "react-router";
 class PhotosForm extends React.Component {
     constructor(props) {
         super(props);
@@ -44,7 +45,7 @@ class PhotosForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         if(!this.props.user) {
-            alert("Please log in!")
+            this.props.history.push("/login")
         } else {
             const formData = new FormData();
             if (this.state.photoFile) {
@@ -106,4 +107,4 @@ class PhotosForm extends React.Component {
         )
     }
 }
-export default PhotosForm;
+export default withRouter(PhotosForm);

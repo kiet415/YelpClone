@@ -18,7 +18,7 @@ class ReviewForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(!this.props.user) {
-            alert("Please log in!")
+            this.props.history.push("/login")
         }  else {
             let today = new Date();
             let dateText = (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear();
