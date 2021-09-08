@@ -15,6 +15,11 @@ class PhotosForm extends React.Component {
         this.setState({ [field]: e.currentTarget.value});
     }
     handleSearch = () => {
+        if(this.state.location === 'All') {
+            this.props.fetchBusinesses().then(
+                this.props.history.push("/business")
+            );
+        }
         let obj = {category: this.state.category, location: this.state.location}
         this.props.fetchBusinesses(obj).then(
             this.props.history.push("/business")

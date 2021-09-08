@@ -43,6 +43,9 @@ class BusinessIndex extends React.Component {
         this.setState({ [field]: e.currentTarget.value});
     }
     handleSearch = () => {
+        if(this.state.location === 'All') {
+            this.props.fetchBusinesses();
+        }
         let obj = {category: this.state.category, location: this.state.location}
         
         this.props.fetchBusinesses(obj);

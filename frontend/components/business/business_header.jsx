@@ -35,6 +35,7 @@ class Header extends React.Component {
                     <option value="Fremont"/>
                     <option value="San Jose"/>
                     <option value="Santa Cruz"/>
+                    <option value="All"/>
                 </datalist>
                 <img onClick={() => this.props.handleSearch()}className="search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>
                 

@@ -33,7 +33,7 @@ class AllPhotos extends React.Component {
         )
     }
     render() {
-        console.log(this.props.business)
+        //console.log(this.props.business)
         if(this.props.business === undefined) return null;
         return (
             <div >

@@ -75,6 +75,15 @@ class HomePage extends React.Component {
         this.setState({ [field]: e.currentTarget.value});
     }
     handleSearch = () => {
+        
+    }
+
+    handleSearch = () => {
+        if(this.state.location === 'All') {
+            this.props.fetchBusinesses().then(
+                this.props.history.push("/business")
+            );
+        }
         let obj = {category: this.state.category, location: this.state.location}
         this.props.fetchBusinesses(obj).then(
             this.props.history.push("/business")
@@ -172,6 +181,7 @@ class HomePage extends React.Component {
                                 <option value="Fremont"/>
                                 <option value="San Jose"/>
                                 <option value="Santa Cruz"/>
+                                <option value="All"/>
                             </datalist>
                             
                             <img onClick={this.handleSearch} className="home-search" src="https://blog.yelp.com/wp-content/uploads/2019/05/SearchIcon.png"/>

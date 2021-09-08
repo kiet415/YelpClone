@@ -6,7 +6,7 @@ class Api::BusinessesController < ApplicationController
         @businesses = Business.all
         #default to san francisco as location if none
         city = "San Francisco"
-       
+        
         if params[:filters]
             if params[:filters][:location]
                 city = params[:filters][:location]
@@ -15,6 +15,8 @@ class Api::BusinessesController < ApplicationController
                             .where("city ILIKE ?", city)
 
             end
+        else 
+            @businesses = Business.all
         end
         
         

@@ -40,29 +40,25 @@ class ReviewForm extends React.Component {
         this.props.history.push(`/business/${this.props.match.params.id}`)
     }
     
-    update(field) {
-        return e =>this.setState({ [field]: e.currentTarget.value});
-    }
+    
    
-    // update = (field, e) => {
-    //     this.setState({ [field]: e.currentTarget.value});
-    // }
-    // handleSearch = () => {
-    //     let obj = {category: this.state.category, location: this.state.location}
-    //     this.props.history.push("/business")
-    //     this.props.fetchBusinesses(obj);
-    // }
+    update = (field, e) => {
+        this.setState({ [field]: e.currentTarget.value});
+    }
+    handleSearch = () => {
+        if(this.state.location === 'All') {
+            this.props.fetchBusinesses().then(
+                this.props.history.push("/business")
+            );
+        }
+        let obj = {category: this.state.category, location: this.state.location}
+        this.props.fetchBusinesses(obj).then(
+            this.props.history.push("/business")
+        )
+    }
     render() {
         if(this.props.business === undefined) return null;
-        let placeholder=`
-        Doesn't look like much when you walk past, but I was practically dying of 
-        hunger so I popped in. The definition of a hole-in-the-wall. I got the regular
-        hambuger and wow.. there are no words. A classic burger done right. Crisp 
-        bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce,
-        tomato, and pickles). There's about a million options available between the
-        menu board and wall full of specials, so it can get a little overwhelming, but 
-        you really can't go wrong. Not much else to say besides go see for yourself! 
-        You won't be disapointed.`
+        let placeholder=`Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hambuger and wow.. there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There's about a million options available between the menu board and wall full of specials, so it can get a little overwhelming, but you really can't go wrong. Not much else to say besides go see for yourself! You won't be disapointed.`
         
         return (
             
@@ -85,17 +81,17 @@ class ReviewForm extends React.Component {
                                 type="number"
                                 value={this.state.rating}
                                 placeholder="5"
-                                onChange={this.update("rating")}
+                                onChange={(e) => this.update("rating",e)}
                                 className="review-rating"
                                 maxLength="3"
                                 min="1"
                                 max="5"
                             />
-                            <label>Select your rating</label>
+                            <label className="review-label">Select your rating</label>
                             <br/>
                             <textarea
                                 value={this.state.body}
-                                onChange={this.update('body')}
+                                onChange={(e) => this.update('body',e)}
                                 placeholder={placeholder}
                                 className="review-body"
                             /> 
