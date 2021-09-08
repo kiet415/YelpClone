@@ -75,11 +75,11 @@ class SessionForm extends React.Component {
                     {this.renderErrors()}
                     <ul>
                       <input
-                          className="session-rest"
-                          type="email"
-                          value={this.props.email}
-                          placeholder="Email"
-                          onChange={this.update('email')}
+                        className="session-rest"
+                        type="email"
+                        value={this.props.email}
+                        placeholder="Email"
+                        onChange={this.update('email')}
                         />
                       
                       
@@ -125,7 +125,7 @@ class SessionForm extends React.Component {
                         
                         <input
                           className="session-rest"
-                          type="text"
+                          type="email"
                           value={this.props.email}
                           placeholder="Email"
                           onChange={this.update('email')}

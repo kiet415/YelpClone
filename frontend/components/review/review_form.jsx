@@ -21,7 +21,7 @@ class ReviewForm extends React.Component {
             alert("Please log in!")
         }  else {
             let today = new Date();
-            let dateText = (today.getMonth()+1) + "-" + today.getDate() + "-" + today.getFullYear();
+            let dateText = (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear();
             const review = {
                 rating: this.state.rating,
                 body: this.state.body,
