@@ -198,7 +198,6 @@ footer {
     width: 400px;
     height: 40px;
     font-size: 18px;
-    margin-left: 35%;
 }
 .header-icon img {
     width: 120px;
@@ -217,7 +216,7 @@ footer {
     background-color: #F4F4F4;
     padding: 20px;
     align-items: center;
-    
+    justify-content: space-between;
 }
 .login-btn {
     background-color: white;
@@ -247,6 +246,17 @@ footer {
     width: 120px;
     height: 80px;
     
+}
+.header-middle {
+    display: flex;
+    margin-left: 350px;
+}
+.header-search {
+    display: flex;
+}
+.header-icons {
+    display: flex;
+    height: 60px;
 }
 .business-info {
     height: 570px;
@@ -455,22 +465,22 @@ footer {
 .home-links {
     width: 50px;
     height: 50px;
-    margin-right: 5%;
+    margin-right: 15px;
 }
-.home-links1 {
+.nav-links {
     width: 50px;
     height: 50px;
-    margin-right: 10%;
+    margin-right: 30px;
 }
 .home-links:hover {
     cursor: pointer;
     padding-bottom: 5px;
     border-bottom: 3px solid white;
 }
-.home-links1:hover {
+.nav-links:hover {
     cursor: pointer;
     padding-bottom: 5px;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
 }
 .review-item-top {
     padding-bottom: 20px;
@@ -649,6 +659,11 @@ footer {
 .business-error-msg {
     text-align: center;
     font-size: 42px;
+}
+.greeting-div {
+    display: flex;
+    justify-content: flex-end;
+    
 }
 .index-item {
     display: flex;

@@ -34,7 +34,7 @@ class Greeting extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="greeting-div">
                 {this.props.currentUser ? this.loggedIn() : this.loggedOut() }
             </div>
         )
