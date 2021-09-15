@@ -48,8 +48,9 @@ class Header extends React.Component {
                         <img onClick={this.goToLinkedIn} className="nav-links" src="https://image.flaticon.com/icons/png/512/174/174857.png"/>
                         <img onClick={this.goToPersonal} className="nav-links" src="https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-512.png"/>
                     
-                <GreetingContainer/>
+                
                 </div>
+                <GreetingContainer/>
             </header>
         )
     }

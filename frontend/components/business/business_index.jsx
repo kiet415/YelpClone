@@ -53,7 +53,15 @@ class BusinessIndex extends React.Component {
     redirectToBusiness = (id) => {
         this.props.history.push(`/business/${id}`)
     }
-    
+    renderReview = (business) => {
+        if(business.review.body) {
+            let review = business.review.body.slice(0,200);
+            return (
+                <div>" {review} ... "</div>
+            )
+        } 
+        
+    }
     renderBusinesses = (e) => {
         if(this.props.businesses.length === 0) {
             return (
@@ -108,7 +116,7 @@ class BusinessIndex extends React.Component {
                                     )}
                                 </div>  
                                 <div key={idx+"eg"}>{business.price} - {business.city} </div>
-                                <div key={idx+"eh"}>{business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> " {business.review.body} " </div> : "No reviews yet" } </div>
+                                <div key={idx+"eh"}>{business.review ? <div className="index-review"><img src="https://icons-for-free.com/iconfiles/png/512/part+1+message-1320568353446515556.png"/> {this.renderReview(business)}</div> : "No Reviews Yet" }</div>
                                 </div>
                             </div>
                         ))}
