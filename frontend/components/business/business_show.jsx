@@ -71,7 +71,17 @@ class BusinessShow extends React.Component {
             )
         }
     }
-    
+    renderPrice = (price) => {
+        if(!price) {
+            return (
+                <span>$</span>
+            )
+        }  else {
+            return(
+                <span>{price}</span>
+            )
+        }
+    }
     render() {
         if(this.props.business === undefined) return null;
         let rating = this.getRatingsPicture(this.props.business.rating)
@@ -104,7 +114,7 @@ class BusinessShow extends React.Component {
                             
                             <div className="allPhotos-show">
                                 <div>
-                                    {this.props.business.price}&nbsp;-&nbsp; 
+                                    {this.renderPrice(this.props.business.price)}&nbsp;-&nbsp; 
                                     {this.props.business.categories.map((cate, idx) => 
                                     
                                     (idx !== this.props.business.categories.length-1) ? 
@@ -166,7 +176,7 @@ class BusinessShow extends React.Component {
                             <div className="business-website"><a href={this.props.business.website}>{this.props.business.name}</a> <span><img src="https://static.thenounproject.com/png/640392-200.png"/></span></div>
                             <div className="business-number"><span>{this.props.business.phoneNumber}</span><span><img src="https://cdn.iconscout.com/icon/free/png-256/phone-2666572-2212584.png"/></span></div>
                             <div className="business-location">
-                                <div className="">
+                                <div className="business-container">
                                     <div className="business-st">{this.props.business.location} </div>
                                     <div>{this.props.business.city}, {this.props.business.zipCode}</div>
                                 </div>
